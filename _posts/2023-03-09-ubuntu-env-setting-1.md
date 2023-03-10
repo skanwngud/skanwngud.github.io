@@ -34,7 +34,7 @@ sudo apt-get install manpages-dev
 `sudo apt-get install nvidia-driver-515`
 
 ## CUDA 설치
-https://developer.nvidia.com/cuda-toolkit-archive 링크로 접속해 원하는 버전의 자신의 os 에 맞는 CUDA 를 받는다
+[cuda-toolkit-archive](https://developer.nvidia.com/cuda-toolkit-archive) 링크로 접속해 원하는 버전의 자신의 os 에 맞는 CUDA 를 받는다
 
 나는 Linux -> x86_64 -> Ubuntu -> 20.04 -> runfile(local) 을 통해 파일을 받았다
 
@@ -54,7 +54,7 @@ sudo sh cuda_11.7.0_515.43.04_linux.run
 참고로 파일을 실행한 다음 설치 할 파일들을 선택할 수 있는 창이 뜨는데, 이 때 그래픽 드라이버는 위에서 이미 설치를 했기 때문에 선택을 해제하고 설치를 마저 진행하면 된다
 
 ## cuDNN 설치
-https://developer.nvidia.com/rdp/cudnn-archive 링크로 접속해 본인의 상황에 맞는 cuDNN 을 다운로드 받는다
+[cudnn-archive](https://developer.nvidia.com/rdp/cudnn-archive) 링크로 접속해 본인의 상황에 맞는 cuDNN 을 다운로드 받는다
 
 nvidia 계정을 요구하므로 가입하고 진행하면 된다
 

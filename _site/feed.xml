@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>오답노트</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-03-10T00:04:04+09:00</updated>
+  <updated>2023-03-11T01:19:02+09:00</updated>
   <author>
     <name>JuHyeong Yoo</name>
     <uri>http://localhost:4000/</uri>
@@ -20,14 +20,63 @@
 
   
   <entry>
+    <title>우분투 환경 세팅 (2)</title>
+    <link href="http://localhost:4000/posts/ubuntu-env-setting-2/" rel="alternate" type="text/html" title="우분투 환경 세팅 (2)" />
+    <published>2023-03-11T00:00:00+09:00</published>
+  
+    <updated>2023-03-11T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/ubuntu-env-setting-2/</id>
+    <content src="http://localhost:4000/posts/ubuntu-env-setting-2/" />
+    <author>
+      <name>yjh</name>
+    </author>
+
+  
+    
+    <category term="ubuntu" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      설치 환경
+
+  Geforce 3090
+  Ubuntu 20.04 LTS
+
+
+Anaconda 설치
+Anaconda official site 를 통해 자신의 os 에 맞는 버전을 선택해 다운로드 받는다
+
+파일이 다운로드 된 경로로 이동해 설치를 진행하기 전 sha256sum {file_name} 명령어를 통해 데이터 무결성을 검사한다
+
+해당 명령어를 입력하면 해시값이 나오는데 이를 복사한뒤 Hashes for all files 접속해 복사한 해시값이 있는지 확인한다
+
+해시값이 있는지 확인이 되면 bash {file_name} 혹은 ./{file_name} 를 통해 .sh 파일을 실행해 설치를 진행한다
+
+파일을 실행하면 Terms and conditions 등이 지나간 뒤 설치 경로를 지정해주고 (ente...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
     <title>우분투 환경 세팅 (1)</title>
-    <link href="http://localhost:4000/posts/ubuntu-env-setting/" rel="alternate" type="text/html" title="우분투 환경 세팅 (1)" />
+    <link href="http://localhost:4000/posts/ubuntu-env-setting-1/" rel="alternate" type="text/html" title="우분투 환경 세팅 (1)" />
     <published>2023-03-09T00:00:00+09:00</published>
   
     <updated>2023-03-09T00:00:00+09:00</updated>
   
-    <id>http://localhost:4000/posts/ubuntu-env-setting/</id>
-    <content src="http://localhost:4000/posts/ubuntu-env-setting/" />
+    <id>http://localhost:4000/posts/ubuntu-env-setting-1/</id>
+    <content src="http://localhost:4000/posts/ubuntu-env-setting-1/" />
     <author>
       <name>yjh</name>
     </author>
@@ -68,174 +117,6 @@ gcc -V 으로 gcc 컴파일러 설치 확인 (이후에 CUDA 설치할 때 필�
 
 그래픽 드라이버 확인 및 설치
 터미널에 ubuntu-drivers devices 를 입력하면 현재 그래픽카드와 ...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Enable Google Page Views</title>
-    <link href="http://localhost:4000/posts/enable-google-pv/" rel="alternate" type="text/html" title="Enable Google Page Views" />
-    <published>2021-01-04T08:32:00+09:00</published>
-  
-    <updated>2021-01-04T08:32:00+09:00</updated>
-  
-    <id>http://localhost:4000/posts/enable-google-pv/</id>
-    <content src="http://localhost:4000/posts/enable-google-pv/" />
-    <author>
-      <name>sille_bille</name>
-    </author>
-
-  
-    
-    <category term="Blogging" />
-    
-    <category term="Tutorial" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      
-  The content of this post applies only to Universal Analytics property (UA), not Google Analytics 4 (GA 4). In addition, since UA is about to be deprecated on Jul 1, 2023, the Page Views feature of Chirpy will also be deprecated at that time.
-
-
-This post is to enable Page Views on the Chirpy theme based blog that you just built. This requires technical knowledge and it’s recommended to keep t...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Customize the Favicon</title>
-    <link href="http://localhost:4000/posts/customize-the-favicon/" rel="alternate" type="text/html" title="Customize the Favicon" />
-    <published>2019-08-11T01:34:00+09:00</published>
-  
-    <updated>2019-08-11T01:34:00+09:00</updated>
-  
-    <id>http://localhost:4000/posts/customize-the-favicon/</id>
-    <content src="http://localhost:4000/posts/customize-the-favicon/" />
-    <author>
-      <name>cotes</name>
-    </author>
-
-  
-    
-    <category term="Blogging" />
-    
-    <category term="Tutorial" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      The favicons of Chirpy are placed in the directory assets/img/favicons/. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.
-
-Generate the favicon
-
-Prepare a square image (PNG, JPG, or SVG) with a size of 512x512 or more, and then go to the online tool Real Favicon Generator and click the button Select your Favicon image ...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Getting Started</title>
-    <link href="http://localhost:4000/posts/getting-started/" rel="alternate" type="text/html" title="Getting Started" />
-    <published>2019-08-09T21:55:00+09:00</published>
-  
-    <updated>2019-08-09T21:55:00+09:00</updated>
-  
-    <id>http://localhost:4000/posts/getting-started/</id>
-    <content src="http://localhost:4000/posts/getting-started/" />
-    <author>
-      <name>cotes</name>
-    </author>
-
-  
-    
-    <category term="Blogging" />
-    
-    <category term="Tutorial" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Prerequisites
-
-Follow the instructions in the Jekyll Docs to complete the installation of the basic environment. Git also needs to be installed.
-
-Installation
-
-Creating a New Site
-
-There are two ways to create a new repository for this theme:
-
-
-  Using the Chirpy Starter - Easy to upgrade, isolates irrelevant project files so you can focus on writing.
-  Forking on GitHub - Convenient for custom...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Writing a New Post</title>
-    <link href="http://localhost:4000/posts/write-a-new-post/" rel="alternate" type="text/html" title="Writing a New Post" />
-    <published>2019-08-08T15:10:00+09:00</published>
-  
-    <updated>2019-08-08T15:10:00+09:00</updated>
-  
-    <id>http://localhost:4000/posts/write-a-new-post/</id>
-    <content src="http://localhost:4000/posts/write-a-new-post/" />
-    <author>
-      <name>cotes</name>
-    </author>
-
-  
-    
-    <category term="Blogging" />
-    
-    <category term="Tutorial" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      This tutorial will guide you how to write a post in the Chirpy template, and it’s worth reading even if you’ve used Jekyll before, as many features require specific variables to be set.
-
-Naming and Path
-
-Create a new file named YYYY-MM-DD-TITLE.EXTENSION and put it in the _posts of the root directory. Please note that the EXTENSION must be one of md and markdown. If you want to save time of cre...
     </summary>
   
 
