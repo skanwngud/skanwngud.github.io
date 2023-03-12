@@ -1,8 +1,8 @@
 ---
 title: 우분투 환경 세팅 (2)
 author: yjh
-categories: [ubuntu]
-tags: [ubuntu]
+categories: [Ubuntu, Ananconda]
+tags: [ubuntu, anaconda]
 ---
 
 ## 설치 환경

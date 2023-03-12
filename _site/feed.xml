@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>오답노트</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-03-11T01:19:02+09:00</updated>
+  <updated>2023-03-12T20:23:13+09:00</updated>
   <author>
     <name>JuHyeong Yoo</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,66 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>우분투 환경 세팅 (3)</title>
+    <link href="http://localhost:4000/posts/ubuntu-env-setting-3/" rel="alternate" type="text/html" title="우분투 환경 세팅 (3)" />
+    <published>2023-03-12T00:00:00+09:00</published>
+  
+    <updated>2023-03-12T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/ubuntu-env-setting-3/</id>
+    <content src="http://localhost:4000/posts/ubuntu-env-setting-3/" />
+    <author>
+      <name>yjh</name>
+    </author>
+
+  
+    
+    <category term="Ubuntu" />
+    
+    <category term="Git" />
+    
+    <category term="VScodeß" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      설치 환경
+
+  Geforece 3090
+  Ubuntu 20.04 LTS
+
+
+Git 설치
+sudo apt-get install git 명령어로 설치 가능하다
+
+git --version 혹은 git -V 으로 설치 여부를 확인한 뒤 git config 명령어로 설정을 완료한다
+
+git config --user.name {user_name}
+git config --user.email {user_email}
+
+git config --list
+
+
+마지막 줄 명령어로 입력한 config 가 제대로 적용 되었는지 확인한다
+
+VScode 설치
+VScode official site 으로 접속해 자신의 os 에 맞는 실행 파일 .deb 을 받는다
+
+터미널에 다운로드 경로로 이동해 sudo apt install ./{...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -34,7 +94,9 @@
 
   
     
-    <category term="ubuntu" />
+    <category term="Ubuntu" />
+    
+    <category term="Ananconda" />
     
   
 
@@ -73,7 +135,7 @@ Anaconda official site 를 통해 자신의 os 에 맞는 버전을 선택해 �
     <link href="http://localhost:4000/posts/ubuntu-env-setting-1/" rel="alternate" type="text/html" title="우분투 환경 세팅 (1)" />
     <published>2023-03-09T00:00:00+09:00</published>
   
-    <updated>2023-03-09T00:00:00+09:00</updated>
+    <updated>2023-03-11T01:20:07+09:00</updated>
   
     <id>http://localhost:4000/posts/ubuntu-env-setting-1/</id>
     <content src="http://localhost:4000/posts/ubuntu-env-setting-1/" />
@@ -83,7 +145,7 @@ Anaconda official site 를 통해 자신의 os 에 맞는 버전을 선택해 �
 
   
     
-    <category term="ubuntu" />
+    <category term="Ubuntu" />
     
   
 

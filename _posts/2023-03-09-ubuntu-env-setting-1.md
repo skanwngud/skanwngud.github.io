@@ -1,8 +1,8 @@
 ---
 title: 우분투 환경 세팅 (1)
 author: yjh
-categories: [ubuntu]
-tags: [ubuntu]
+categories: [Ubuntu]
+tags: [ubuntu, cuda, cudnn]
 ---
 
 ## 설치 환경
