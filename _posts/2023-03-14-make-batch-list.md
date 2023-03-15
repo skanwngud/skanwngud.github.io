@@ -21,18 +21,20 @@ def make_batch_list(self, file_list: List[], batch_size: int) -> List[]:
     return result_list
 ```
 
-## Explation
+## Explenation
 ```python
 def make_batch_list(self, file_list: List[], batch_size: int) -> List[]:
 ```
 
 `input data` 로 잘라 줄 대상이 될 리스트와 잘라 줄 단위인 배치 사이즈를 지정한다.
 
+
 ```python
 result_list = []
 ```
 
 배치 단위로 잘린 결과를 담을 리스트를 선언한다.
+
 
 ```python
 for idx in range(0, len(file_list), batch_size):
@@ -42,6 +44,7 @@ for idx in range(0, len(file_list), batch_size):
 
 (`for in range(a, b, c)` 에서 a 는 start, b 는 end, c 는 step 을 뜻한다.)
 
+
 ```python
 if idx + batch_size < len(file_list):
     result_list.append(file_list[idx:idx+batch_size])
@@ -49,12 +52,14 @@ if idx + batch_size < len(file_list):
 
 현재 파일 위치 + 배치 사이즈의 크기가 리스트의 최대 길이를 넘지 않는다면 그 범위만큼 잘라 추가해준다.
 
+
 ```python
 else:  # == idx + batch_size > len(file_list)
     result_list.append(file_list[idx:])
 ```
 
 반대로 현재 파일 위치 + 배치 사이즈의 크기가 최대 길이를 넘었다면 현재 파일 위치에서 리스트의 끝까지 추가한다.
+
 
 ```python
 return result_list
