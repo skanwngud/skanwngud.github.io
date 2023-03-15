@@ -1,7 +1,7 @@
 ---
 title: 컴퓨터 구조 (1)
 author: yjh
-categories: [Computer Sience]
+categories: [Computer Science]
 tage: [cs]
 ---
 
