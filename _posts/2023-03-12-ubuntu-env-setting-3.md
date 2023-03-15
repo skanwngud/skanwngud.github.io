@@ -1,8 +1,8 @@
 ---
 title: 우분투 환경 세팅 (3)
 author: yjh
-categories: [Ubuntu, Git, VScodeß]
-tags: [ubuntu, git, vscode]
+categories: [Ubuntu, Settings]
+tags: [ubuntu, settings, git, vscode]
 ---
 
 ## 설치 환경
