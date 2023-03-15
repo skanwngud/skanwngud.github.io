@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>오답노트</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-03-15T22:06:04+09:00</updated>
+  <updated>2023-03-15T22:09:41+09:00</updated>
   <author>
     <name>JuHyeong Yoo</name>
     <uri>http://localhost:4000/</uri>
@@ -24,7 +24,7 @@
     <link href="http://localhost:4000/posts/computer-structure-2/" rel="alternate" type="text/html" title="컴퓨터 구조 (2)" />
     <published>2023-03-15T00:00:00+09:00</published>
   
-    <updated>2023-03-15T00:00:00+09:00</updated>
+    <updated>2023-03-15T22:06:30+09:00</updated>
   
     <id>http://localhost:4000/posts/computer-structure-2/</id>
     <content src="http://localhost:4000/posts/computer-structure-2/" />
