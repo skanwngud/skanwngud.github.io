@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>오답노트</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-03-13T22:50:30+09:00</updated>
+  <updated>2023-03-15T22:06:04+09:00</updated>
   <author>
     <name>JuHyeong Yoo</name>
     <uri>http://localhost:4000/</uri>
@@ -20,11 +20,105 @@
 
   
   <entry>
+    <title>컴퓨터 구조 (2)</title>
+    <link href="http://localhost:4000/posts/computer-structure-2/" rel="alternate" type="text/html" title="컴퓨터 구조 (2)" />
+    <published>2023-03-15T00:00:00+09:00</published>
+  
+    <updated>2023-03-15T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/computer-structure-2/</id>
+    <content src="http://localhost:4000/posts/computer-structure-2/" />
+    <author>
+      <name>yjh</name>
+    </author>
+
+  
+    
+    <category term="Computer Science" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      비트를 사용해 정수를 표현하기
+정수 표현
+실생활의 우리가 주로 사용하고 있는 수는 10 진수demical number이다.
+
+0 ~ 9 까지를 한 자리에 나타낼 수 있으며  9를 넘는 수는 10 을 곱하여 다시 시작한다.
+
+이때 자릿수가 커짐에 따라 10 의 거듭제곱으로 커지게 되며, 지수 부분이 적용 될 밑수base-number 가 10 이기 때문에 10진수라는 이름이 붙여졌다.
+
+이와 마찬가지로 2진수는 0 ~ 1 까지를 한 자리에 나타낼 수 있는 셈법이며 1 을 초과하는 수를 나타낼 땐 2 를 곱하여 다시 시작한다.
+
+자릿수가 바뀔 때마다 2 의 거듭제곱순으로 커지게 되며, 밑수가 2 이기 때문에 2 진수라는 이름이 붙었다.
+
+
+  10진수: \(... 10^5 + 10^4 + 10^3 + 10^...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>배치리스트 만들기</title>
+    <link href="http://localhost:4000/posts/make-batch-list/" rel="alternate" type="text/html" title="배치리스트 만들기" />
+    <published>2023-03-14T00:00:00+09:00</published>
+  
+    <updated>2023-03-15T20:56:11+09:00</updated>
+  
+    <id>http://localhost:4000/posts/make-batch-list/</id>
+    <content src="http://localhost:4000/posts/make-batch-list/" />
+    <author>
+      <name>yjh</name>
+    </author>
+
+  
+    
+    <category term="Python" />
+    
+    <category term="Snippet" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Summary
+파일명이나 이미지 등이 들어가있는 리스트와 배치 사이즈를 입력 받아 그 리스트를 배치 단위로 잘라주는 함수이다.
+
+Source Code
+def make_batch_list(self, file_list: List[], batch_size: int) -&amp;gt; List[]:
+    result_list = []
+
+    for idx in range(0, len(file_list), batch_size):
+        if idx + batch_size &amp;lt; len(file_list):
+            result_list.append(file_list[idx:idx+batch_size])
+        else:
+            result_list.append(file_l...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
     <title>컴퓨터 구조 (1)</title>
     <link href="http://localhost:4000/posts/computer-structure-1/" rel="alternate" type="text/html" title="컴퓨터 구조 (1)" />
     <published>2023-03-13T00:00:00+09:00</published>
   
-    <updated>2023-03-13T00:00:00+09:00</updated>
+    <updated>2023-03-15T22:01:10+09:00</updated>
   
     <id>http://localhost:4000/posts/computer-structure-1/</id>
     <content src="http://localhost:4000/posts/computer-structure-1/" />
@@ -34,7 +128,7 @@
 
   
     
-    <category term="Computer Sience" />
+    <category term="Computer Science" />
     
   
 
@@ -183,61 +277,6 @@ Anaconda official site 를 통해 자신의 os 에 맞는 버전을 선택해 �
 해시값이 있는지 확인이 되면 bash {file_name} 혹은 ./{file_name} 를 통해 .sh 파일을 실행해 설치를 진행한다
 
 파일을 실행하면 Terms and conditions 등이 지나간 뒤 설치 경로를 지정해주고 (ente...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>우분투 환경 세팅 (1)</title>
-    <link href="http://localhost:4000/posts/ubuntu-env-setting-1/" rel="alternate" type="text/html" title="우분투 환경 세팅 (1)" />
-    <published>2023-03-09T00:00:00+09:00</published>
-  
-    <updated>2023-03-12T20:27:46+09:00</updated>
-  
-    <id>http://localhost:4000/posts/ubuntu-env-setting-1/</id>
-    <content src="http://localhost:4000/posts/ubuntu-env-setting-1/" />
-    <author>
-      <name>yjh</name>
-    </author>
-
-  
-    
-    <category term="Ubuntu" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      설치 환경
-
-  Geforce 3090
-  Ubuntu 20.04 LTS
-
-
-pre-setting
-그래픽 드라이버를 설치하기 전 필요한 패키지들을 먼저 설치해준다
-
-sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade -y
-
-sudo apt-get install openssh-server
-sudo apt-get install net-tools
-
-sudo apt-get install build-essential
-sudo apt-get install manpages-dev
-
-
-gcc -V 으로 gcc 컴파일러 설치 확인 (이후에 CUDA 설치할 때 필요)
-
-그래픽 드라이버 확인 및 설치
-터미널에 ubuntu-drivers devices 를 입력하면 현재 그래픽카드와 ...
     </summary>
   
 
