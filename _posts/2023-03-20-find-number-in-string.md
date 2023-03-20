@@ -2,7 +2,7 @@
 title: 숫자와 문자가 혼합 된 문자열에서 숫자만 찾기
 author: yjh
 math: true
-caetegories: [Python, Snippet]
+categories: [Python, Snippet]
 tags: [python, snippet]
 ---
 ## Summary
