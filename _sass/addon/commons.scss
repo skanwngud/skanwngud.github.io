@@ -694,7 +694,10 @@ $sidebar-display: "sidebar-display";
   overflow-y: auto;
   width: $sidebar-width;
   z-index: 99;
-  background: var(--sidebar-bg);
+  /* background: var(--sidebar-bg); */
+  background-image: url('/assets/img/sidebar.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 
   /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {
@@ -755,12 +758,12 @@ $sidebar-display: "sidebar-display";
       font-weight: 900;
       font-size: 1.5rem;
       letter-spacing: 0.5px;
-      color: rgba(134, 133, 133, 0.99);
+      color: rgba(255, 255, 255, 0.800);
     }
   }
 
   .site-subtitle {
-    font-size: 95%;
+    font-size: 120%;
     color: var(--sidebar-muted-color);
     line-height: 1.25rem;
     word-spacing: 1px;
@@ -773,7 +776,7 @@ $sidebar-display: "sidebar-display";
 
   .nav-link {
     border-radius: 0;
-    font-size: 0.95rem;
+    font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: 1px;
     display: table-cell;

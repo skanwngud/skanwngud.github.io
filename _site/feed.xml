@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>오답노트</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-03-15T22:09:41+09:00</updated>
+  <updated>2023-03-20T22:47:26+09:00</updated>
   <author>
     <name>JuHyeong Yoo</name>
     <uri>http://localhost:4000/</uri>
@@ -20,11 +20,186 @@
 
   
   <entry>
+    <title>숫자와 문자가 혼합 된 문자열에서 숫자만 찾기</title>
+    <link href="http://localhost:4000/posts/find-number-in-string/" rel="alternate" type="text/html" title="숫자와 문자가 혼합 된 문자열에서 숫자만 찾기" />
+    <published>2023-03-20T00:00:00+09:00</published>
+  
+    <updated>2023-03-20T21:43:28+09:00</updated>
+  
+    <id>http://localhost:4000/posts/find-number-in-string/</id>
+    <content src="http://localhost:4000/posts/find-number-in-string/" />
+    <author>
+      <name>yjh</name>
+    </author>
+
+  
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Summary
+a_1, 100_a 등과 같은 문자 + 숫자 조합의 문자열에서 숫자 정보만 반환한다.
+
+Source Code
+import re
+
+int(''.join(re.findall('\d', string)))
+
+
+Explanation
+import re
+
+
+re 라이브러리를 임포트해준다.
+
+re 라이브러니는 정규화 관련 함수들이 들어있는 라이브러리이다.
+
+짧은 한 줄의 코드를 굳이 구분을 짓자면 re.findall('\d', string), ''.join(), int() 이렇게 3개로 나눌 수 있는데,
+
+re.findall('\d', string)
+
+
+이 코드는 string 이라는 문자열 안에 있는 숫자 ('\d') 를 전부 찾아내 리스트 형태로 반환한다.
+
+''.join()
+
+
+괄호 안에 있는 it...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>UML</title>
+    <link href="http://localhost:4000/posts/UML-1/" rel="alternate" type="text/html" title="UML" />
+    <published>2023-03-20T00:00:00+09:00</published>
+  
+    <updated>2023-03-20T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/UML-1/</id>
+    <content src="http://localhost:4000/posts/UML-1/" />
+    <author>
+      <name>yjh</name>
+    </author>
+
+  
+    
+    <category term="UML" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      UML
+
+  소스코드를 도형 및 화살표 등으로 기능을 설명함
+
+
+종류
+
+  정적인 부분
+    
+      단순 코드 나열하여 기능 설명
+    
+  
+  동적인 부분
+    
+      sequence diagram, 소스코드의 flow 를 설명함
+    
+  
+
+
+구조
+Class Diagram (정적)
+
+  Life Ccle 을 관리하면 UML 화살표 상에서 검은색으로 칠함
+  Association (상관 관계)
+    
+      양방향
+      단반향
+      Recursive (design pattern 등에서 자주 사용)
+      Inner class; a 클래스가 b 클래스 안에서 선언 되어 사용
+      Dependancy; a 클래스의 내부의 함수에서 b 클래스가 사용 됨 (a ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>컴퓨터 구조 (3)</title>
+    <link href="http://localhost:4000/posts/computer-structure-3/" rel="alternate" type="text/html" title="컴퓨터 구조 (3)" />
+    <published>2023-03-16T00:00:00+09:00</published>
+  
+    <updated>2023-03-16T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/computer-structure-3/</id>
+    <content src="http://localhost:4000/posts/computer-structure-3/" />
+    <author>
+      <name>yjh</name>
+    </author>
+
+  
+    
+    <category term="Computer Science" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      실수를 표현하는 방법
+
+고정소수점 표현법
+
+
+  2진 소수점의 위치를 임의로 정하는 방법
+  4비트가 있다고했을 때 2비트는 소수점의 오른쪽에 있는 분수를 표현하고 2비트는 왼쪽에 있는 숫자들을 표현하는데 쓸 수 있다.
+    
+      2비트 = 분수, 2비트 = 정수 표시
+      
+        정수를 나타내는 비트는 동일하며 분수를 나타내는 비트는 2의 음의 거듭제곱처럼 나타낸다
+
+\[2^1 + 2^0 \, . 2^{-1} + 2^{-2}\]
+      
+    
+  
+  해당 방법은 실수값을 표현하기 위해 필요한 비트가 너무 많기 때문에 범용 컴퓨터에서 사용하는 경우는 드물지만, 디지털 신호 처리 장치 (DSP; Digital Signal Processor) 에선 종종 사용.
+
+
+부동소수점...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
     <title>컴퓨터 구조 (2)</title>
     <link href="http://localhost:4000/posts/computer-structure-2/" rel="alternate" type="text/html" title="컴퓨터 구조 (2)" />
     <published>2023-03-15T00:00:00+09:00</published>
   
-    <updated>2023-03-15T22:06:30+09:00</updated>
+    <updated>2023-03-15T22:09:47+09:00</updated>
   
     <id>http://localhost:4000/posts/computer-structure-2/</id>
     <content src="http://localhost:4000/posts/computer-structure-2/" />
@@ -107,176 +282,6 @@ def make_batch_list(self, file_list: List[], batch_size: int) -&amp;gt; List[]:
             result_list.append(file_list[idx:idx+batch_size])
         else:
             result_list.append(file_l...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>컴퓨터 구조 (1)</title>
-    <link href="http://localhost:4000/posts/computer-structure-1/" rel="alternate" type="text/html" title="컴퓨터 구조 (1)" />
-    <published>2023-03-13T00:00:00+09:00</published>
-  
-    <updated>2023-03-15T22:01:10+09:00</updated>
-  
-    <id>http://localhost:4000/posts/computer-structure-1/</id>
-    <content src="http://localhost:4000/posts/computer-structure-1/" />
-    <author>
-      <name>yjh</name>
-    </author>
-
-  
-    
-    <category term="Computer Science" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      컴퓨터 내부의 언어 체계
-
-  언어란? 기호의 집합으로 인코딩encoding 된 것을 당사자들간 모두 같은 문맥context 로 의사소통하는 것
-
-
-비트bit
-
-  binary + digit 의 합성어
-  0, 1 을 나타내는 이진법 사용
-  기호는 주관적이므로 켜짐 / 꺼짐, 낮 / 밤 등이 될 수 있다
-
-
-논리연산logical operation
-
-  다른 비트들이 표현하는 내용으로부터 새로운 비트를 만들어내는 동작
-
-
-불리언 대수boolean
-
-  비트에 사용할 수 있는 연산 규칙의 집합
-  
-    일반 대수와 마찬가지로 결합 법칙, 교환 법칙, 분배 법칙 등을 적용 가능
-  
-  NOT: 논리적 반대를 의미, 참 -&amp;gt; 거짓, 거짓 -&amp;gt; 참으로 연산
-  AND: 둘 이상의 비트에 작용
-...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>우분투 환경 세팅 (3)</title>
-    <link href="http://localhost:4000/posts/ubuntu-env-setting-3/" rel="alternate" type="text/html" title="우분투 환경 세팅 (3)" />
-    <published>2023-03-12T00:00:00+09:00</published>
-  
-    <updated>2023-03-12T00:00:00+09:00</updated>
-  
-    <id>http://localhost:4000/posts/ubuntu-env-setting-3/</id>
-    <content src="http://localhost:4000/posts/ubuntu-env-setting-3/" />
-    <author>
-      <name>yjh</name>
-    </author>
-
-  
-    
-    <category term="Ubuntu" />
-    
-    <category term="Git" />
-    
-    <category term="VScodeß" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      설치 환경
-
-  Geforece 3090
-  Ubuntu 20.04 LTS
-
-
-Git 설치
-sudo apt-get install git 명령어로 설치 가능하다
-
-git --version 혹은 git -V 으로 설치 여부를 확인한 뒤 git config 명령어로 설정을 완료한다
-
-git config --user.name {user_name}
-git config --user.email {user_email}
-
-git config --list
-
-
-마지막 줄 명령어로 입력한 config 가 제대로 적용 되었는지 확인한다
-
-VScode 설치
-VScode official site 으로 접속해 자신의 os 에 맞는 실행 파일 .deb 을 받는다
-
-터미널에 다운로드 경로로 이동해 sudo apt install ./{...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>우분투 환경 세팅 (2)</title>
-    <link href="http://localhost:4000/posts/ubuntu-env-setting-2/" rel="alternate" type="text/html" title="우분투 환경 세팅 (2)" />
-    <published>2023-03-11T00:00:00+09:00</published>
-  
-    <updated>2023-03-12T20:27:46+09:00</updated>
-  
-    <id>http://localhost:4000/posts/ubuntu-env-setting-2/</id>
-    <content src="http://localhost:4000/posts/ubuntu-env-setting-2/" />
-    <author>
-      <name>yjh</name>
-    </author>
-
-  
-    
-    <category term="Ubuntu" />
-    
-    <category term="Ananconda" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      설치 환경
-
-  Geforce 3090
-  Ubuntu 20.04 LTS
-
-
-Anaconda 설치
-Anaconda official site 를 통해 자신의 os 에 맞는 버전을 선택해 다운로드 받는다
-
-파일이 다운로드 된 경로로 이동해 설치를 진행하기 전 sha256sum {file_name} 명령어를 통해 데이터 무결성을 검사한다
-
-해당 명령어를 입력하면 해시값이 나오는데 이를 복사한뒤 Hashes for all files 접속해 복사한 해시값이 있는지 확인한다
-
-해시값이 있는지 확인이 되면 bash {file_name} 혹은 ./{file_name} 를 통해 .sh 파일을 실행해 설치를 진행한다
-
-파일을 실행하면 Terms and conditions 등이 지나간 뒤 설치 경로를 지정해주고 (ente...
     </summary>
   
 
