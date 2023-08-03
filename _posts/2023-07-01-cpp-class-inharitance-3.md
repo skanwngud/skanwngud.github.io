@@ -2,8 +2,8 @@
 title: 클래스 상속 3
 author: yjh
 math: true
-categories: []
-tags: []
+categories: [CPP]
+tags: [cpp]
 ---
 
 ## 클래스 상속을 위한 조건
