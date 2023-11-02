@@ -29,6 +29,7 @@ conda activate <virtual envrioment name>
 
 - `python ~ ...` 명령어로 `sys.path` 를 찍어보니 현재 가상환경이 아닌 다른 가상환경도 같이 물어오는 것을 확인
 - `export PYTHONNOUSERSITE=1` 명령어로 `global packages` 사용을 하지 않도록 수정
+- 전체 환경에 적용을 하고 싶다면 `.bashrc` 파일에 `export PYTHONNOUSERSITE=1` 를 추가해서 적용
 
 ## Reference
 
