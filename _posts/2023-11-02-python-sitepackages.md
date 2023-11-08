@@ -31,6 +31,11 @@ conda activate <virtual envrioment name>
 - `export PYTHONNOUSERSITE=1` 명령어로 `global packages` 사용을 하지 않도록 수정
 - 전체 환경에 적용을 하고 싶다면 `.bashrc` 파일에 `export PYTHONNOUSERSITE=1` 를 추가해서 적용
 
+---
+
+- 위의 해결책은 일시적인 방법이었으며, 에러 내용을 좀 더 확인해본 결과 CUDA 관련 문제라 유추, CUDA 업데이트 이후 정상작동하는 것을 확인했다.
+- nvidia-driver 부터 cuda, cudnn 전체 삭제 후 재설치를 진행하였다.
+
 ## Reference
 
 - [lightman.log](https://velog.io@thk-lightman/Mac-Python-개발환경-설정가상환경-로컬-빅쿼리-연동)
