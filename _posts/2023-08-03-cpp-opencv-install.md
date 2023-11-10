@@ -147,7 +147,7 @@ sudo apt-get install ffmpeg libavcodec-dev libavformat-dev libswscale-dev libxvi
 sudo apt-get install libv4l-dev v4l-utils
 
 # 비디오 스트리밍을 위한 라이브러리
-sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-bae1.0-dev
+sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
 
 # 윈도우 생성, 마우스 제어 등의 GUI 를 위해 필요한 패키지 (gtk, qt 등 선택 가능)
 sudo apt-get install libgtk2.0-dev  # gtk 선택
@@ -157,7 +157,7 @@ sudo apt-get install libqt5-dev
 sudo apt-get install libgtk-3-dev
 
 # openGL 지원
-sudo apt-get install mesa-utils libgl1-mesa-dir libgtkgl2.0-dev libgtkglext1-dev
+sudo apt-get install mesa-utils libgl1-mesa-dev libgtkgl2.0-dev libgtkglext1-dev
 
 # OpenCV 최적화
 sudo apt-get install libatlas-base-dev gfortran libeigen3-dev
@@ -176,21 +176,21 @@ sudo apt-get install python3-dev python3-numpy
 mkdir opencv
 cd opencv
 
-wget -O opencv.zip https://github.com/opencv/opencv/archive/4.2.0.zip
+wget -O opencv.zip https://github.com/opencv/opencv/archive/4.8.0.zip
 unzip opencv.zip
 
-wget -O opencv-contrib.zip https://github.com/opencv/opencv_contrib/archive/4.2.0.zip
+wget -O opencv-contrib.zip https://github.com/opencv/opencv_contrib/archive/4.8.0.zip
 unzip opencv-contrib.zip
 ```
 
 #### OpenCV 빌드
 
 ```shell
-cd opencv-4.2.0
+cd opencv-4.8.0
 mkdir build
 cd build
 
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/lcal -D WITH_TBB=OFF -D WITH_IPP=OFF -D WITH_1394=OFF -D BUILD_WITH_DEBUG_INFO=OFF -D BUILD_DOCS=OFF -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D WITH_QT=OFF -D WITH_GTK=ON -D WITH_OPENGL=ON -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-4.2.0/modules -D WITH_V4L=ON -D WITH_FFMPEG=ON -D WITH_XINE=ONE -D BUILD_NEW_PYTHON_SUPPORT=ON -D OPENCV_GENERATE_PKGCONFIG=ON ../
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=OFF -D WITH_IPP=OFF -D WITH_1394=OFF -D BUILD_WITH_DEBUG_INFO=OFF -D BUILD_DOCS=OFF -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D WITH_QT=OFF -D WITH_GTK=ON -D WITH_OPENGL=OFF -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-4.7.0/modules -D WITH_V4L=ON -D WITH_FFMPEG=ON -D WITH_XINE=ONE -D BUILD_NEW_PYTHON_SUPPORT=ON -D OPENCV_GENERATE_PKGCONFIG=ON -D PYTHON3_PACKAGES_PATH=/usr/lib/python3.10/dist-packages -D PYTHON3_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.10.so ../
 ```
 
 #### make 명령을 통한 빌드
@@ -245,7 +245,8 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/lcal -D WITH_TBB=
         "${file}",
         "-o",
         "${fileDirname}/${fileBasenameNoExtension}",
-        "$(pkg-config opencv4 --cflags --libs)"
+        "$(pkg-config opencv4 --cflags --libs)",
+        "-I/usr/local/include/opencv4"
       ],
       "options": {
         "cwd": "${fileDirname}"
@@ -261,6 +262,48 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/lcal -D WITH_TBB=
   "version": "2.0.0"
 }
 ```
+
+- `-I/usr/local/include/opencv4` 의 경우 `wsl` 에서만 필요한 것으로 현재는 확인
+
+### launch.json 수정
+
+- 디버깅하기 위해서 필요한 파일
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++: cpp build and debug active file",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "stoAtEntry": false,
+      "cwd": "${fileDirname}",
+      "enviroment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "C/C++: cpp build active file",
+      "miDebuggerPath": "/usr/bin/gdb"
+    }
+  ]
+}
+```
+
+- `preLaunchTest` 는 `tasks.json` 에서 `label` 을 지정하여 해당 조건으로 실행한다는 의미.
 
 ### OpenCV 프로젝트 컴파일
 
