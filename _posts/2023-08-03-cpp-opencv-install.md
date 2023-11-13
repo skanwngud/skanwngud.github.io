@@ -245,7 +245,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB
         "${file}",
         "-o",
         "${fileDirname}/${fileBasenameNoExtension}",
-        "$(pkg-config opencv4 --cflags --libs)",
+        "`pkg-config opencv4 --cflags --libs`",
         "-I/usr/local/include/opencv4"
       ],
       "options": {
@@ -327,8 +327,12 @@ int main(void)
 ```
 
 ```shell
-g++ maine.cpp -o main $(pkg-config opencv4 --cflags --libs)
+g++ maine.cpp -o main `pkg-config opencv4 --cflags --libs`
 ```
+
+## Trouble Shooting
+
+- `undefined reference to cv::imread ...` 등의 에러가 발생한 경우 `sudo apt-get install libopencv-*` 로 모듈 재설치
 
 ## Reference
 
