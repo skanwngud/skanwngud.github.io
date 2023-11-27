@@ -1,6 +1,6 @@
 ---
-titme: OpenCV 클래스
-auhtor: yjh
+title: OpenCV 클래스
+author: yjh
 math: true
 categories: [CPP, OpenCV]
 tags: [cpp, opencv]
