@@ -26,6 +26,37 @@ int main(void)
 
 ## clone() 함수를 통한 행렬 복사
 
-- 
+- 픽셀 데이터를 공유하는 것이 아닌 메모리 공간을 새로 할당 (깊은 복사)
+- 자기 자신과 동일한 `cv::Mat` 객체를 완전히 새로 만들어 반환
+
+```cpp
+#include "opencv2/opencv.hpp"
+
+int main(void)
+{
+    cv::Mat img = cv::imread("./path/to/image");
+
+    cv::Mat img2 = img.clone();
+
+    return 0;
+}
+```
 
 ## copyTo() 함수를 통한 행렬 복사
+
+- 픽셀 데이터를 공유하는 것이 아닌 메모리 공간을 새로 할당 (깊은 복사)
+- 함수 이름에서 알 수 있듯이 원형이 되는 함수를 변수로 받는 객체로 복사한다
+
+```cpp
+#include "opencv2/opencv.hpp"
+
+int main(void)
+{
+    cv::Mat img = cv::imread("./path/to/image");
+
+    cv::Mat img2;  // 빈 객체 생성
+    img.copyTo(img2);  // 빈 객체에 img를 복사
+
+    return 0;
+}
+```
