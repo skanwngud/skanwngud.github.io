@@ -37,6 +37,8 @@ int main(void)
 ```cpp
 #include "opencv2/opencv.hpp"
 
+#inclde <iostream>
+
 int main(void)
 {
     cv::Mat img = cv::imread("./path/to/image");

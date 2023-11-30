@@ -14,6 +14,8 @@ tags: [cpp, opencv]
 ```cpp
 #include "opencv2/opencv.hpp"
 
+#include <iostream>
+
 int main(void)
 {
     cv::Mat img = cv::imread("./path/to/image");
@@ -42,6 +44,8 @@ int main(void)
 
 ```cpp
 #include "opencv2/opencv.hpp"
+
+#include <iostream>
 
 int main(void)
 {
@@ -75,6 +79,8 @@ int main(void)
 
 ```cpp
 #include "opencv2/opencv.hpp"
+
+#include <iostream>
 
 int main(void)
 {
