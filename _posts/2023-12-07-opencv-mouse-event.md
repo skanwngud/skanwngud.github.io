@@ -1,7 +1,7 @@
 ---
 title: OpenCV 마우스 이벤트
 author: yjh
-categories: [CPP, OpenCv]
+categories: [CPP, OpenCV]
 tgs: [cpp, opencv]
 ---
 
