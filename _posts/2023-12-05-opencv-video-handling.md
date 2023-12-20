@@ -71,3 +71,50 @@ int main(void)
     return 0;
 }
 ```
+
+## Video Writer
+
+- 이미지나 영상의 프레임을 영상의 형태로 저장하는 클래스
+- `cv::VideoWriter::fourcc(codec name(4 char));`로 저장할 비디오의 코덱 형식을 지정
+  - `int` 형식의 4개의 숫자
+- `cv::VideoWriter wrt;` 선언을 통해 `VideoWriter` 객체를 선언하고 `wrt.open();`을 통해 초기화한다.
+  - `wrt.open("path/to/file_name", fourcc, fps, size);`
+  - `cv::Size(width, height)`
+- 프레임을 저장할 땐 `write()` 함수를 사용하거나 재정의 된 `<<` 연산자를 이용한다.
+- 모든 처리가 끝나면 마찬가지로 `release()` 함수를 실행한다.
+
+```cpp
+#include "opencv2/opencv.hpp"
+
+#include <iostream>
+
+int main(void)
+{
+  cv::Mat frame;
+  cv::Mat outFrame;
+
+  cv::VideoCapture cap("./path/to/video");  // 프레임을 캡처 할 카메라, 혹은 영상 파일
+
+  cv::VideoWriter wrt;
+  int fourcc = cv::VideoWriter::fourcc('X', 'V', 'I', 'D');  // 코덱 정의
+  wrt.open("./path/to/save/file", fourcc, cap.get(cv::CAP_PROP_FPS), cv::Size(cap.get(cv::CAP_PROP_FRAME_WIDTH), cap.get(cv::CAP_PROP_FRAME_HEIGHT)));
+
+  while(cap.isOpened())
+  {
+    cap >> frame;
+
+    if(!cap.rows > 0)
+    {
+      break;
+    }
+
+    wrt << frame;  // 저장
+    // wrt.write(frame);  으로도 지정 가능
+  }
+
+  wrt.release();
+  cap.release();
+
+  return 0;
+}
+```
