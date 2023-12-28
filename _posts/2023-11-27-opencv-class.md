@@ -3,8 +3,10 @@ title: OpenCV 클래스
 author: yjh
 math: true
 categories: [CPP, OpenCV]
-tags: [cpp, opencv]
+tags: [cpp, opencv, book review]
 ---
+
+> 해당 포스팅은 *OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)*를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
 
 ## Point\_ 클래스
 
@@ -102,7 +104,7 @@ Rect rc4 = rc2 + Point(10, 10);  // (20, 20) 으로 시작하는 (60, 40) 크기
 
 ## RotatedRect 클래스
 
-- 사각형의 위치, 크기 정보와 회전각도를 표현하는 _클래스_
+- 사각형의 위치, 크기 정보와 회전각도를 표현하는 *클래스*
 - center, size, angle 이라는 이름의 멤버 변수를 갖고 있음
   - center(x, y), size(widht, height), angle
 - 모든 정보를 `float` 를 사용하여 표현
