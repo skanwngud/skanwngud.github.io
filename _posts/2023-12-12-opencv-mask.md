@@ -34,11 +34,11 @@ int main(void)
 }
 ```
 
-<img src="../assets/img/lenna.bmp" width=50%>
+![lenna](/assets/img/lenna.bmp)
 
-<img src="../assets/img/mask_smile.bmp" width=50%>
+![mask_smile](/assets/img/mask_smile.bmp)
 
-<img src="../assets/img/lenna_result.jpg" width=50%>
+![lenna_result](/assets/img/lenna_result.jpg)
 
 - `lenna.bmp`에 `mask_smile.bmp` 영역을 합성한다.
 
@@ -68,13 +68,13 @@ int main(void)
 }
 ```
 
-<img src="../assets/img/airplane.bmp" width=50%>
+![airplane](/assets/img/airplane.bmp)
 
-<img src="../assets/img/mask_plane.bmp" width=50%>
+![mask_airplane](/assets/img/mask_plane.bmp)
 
-<img src="../assets/img/field.bmp" width=50%>
+![field](/assets/img/field.bmp)
 
-<img src="../assets/img/airplane_result.jpg" width=50%>
+![airplane_result](/assets/img/airplane_result.jpg)
 
 - `airplane.bmp`의 비행기 영역을 지정 ($0$이 아닌 값의 위치)하여 마스크를 생성한 뒤 해당 영역의 행렬값만 복사하여 `field.bmp`에 합성한다.
 - `field.bmp`에 `airplane.bmp`의 비행기 영역의 값들이 복사 되어 합성 됨.
