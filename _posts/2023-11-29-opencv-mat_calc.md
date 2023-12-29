@@ -1,5 +1,5 @@
 ---
-title: 행렬 계산
+title: OpenCV 행렬 계산
 author: yjh
 math: true
 categories: [CPP, OpenCV]

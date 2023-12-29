@@ -71,3 +71,55 @@ std::cout << cvRound(3.4999) << std::endl;  // 3
 std::cout << cvRound(3.5) << std::endl;  // 4
 std::cout << cvRound(2) << std::endl;  // 2
 ```
+
+### CV_Assert, CV_DbgAssert
+
+- 조건에 따라 에러를 발생시켜주는 함수.
+- `CV_Assert(expr), CV_DbgAssert(expr)`의 형태.
+  - `expr`은 표현식, 조건문이며 해당 조건문이 `false`인 경우 에러를 발생시킨다.
+  - `CV_Assert`의 경우 릴리스모드, 디버그모드 둘 다 사용 가능하다.
+  - `CV_DbgAssert`의 경우 디버그모드에서만 사용 가능하다.
+
+```cpp
+CV_Assert(1 == 0);  // 0 (false) 이므로 에러 발생
+CV_DbgAssert(1 == 0); // 0 (false) 이므로 에러 발생 (디버그 모드에서만 동작)
+```
+
+### cv::TickMeter
+
+- 실행 시간을 측정해주는 함수.
+- `cv::TickMeter` 객체를 호출한 뒤 `cv::TickMeter.start()`로 측정 시작, `cv::TickMeter.stop()` 으로 측정 종료한다.
+- 시간 측정을 정확히 하기 위해서는 릴리스 모드에서 측정해야한다.
+  - 디버그모드에서는 컴파일러 자체의 최적화 등이 동작하지않으며 추가적인 연산이 더 들어간다.
+- `getTickCount()` 함수로 컴퓨터 내부에서 수행 되는 클럭의 횟수를 센다. (`int64` 반환)
+- `getTickFrequency()` 함수를 통해 클럭 주파수 (초당 클럭 횟수) 를 반환한다.
+- `cv::TickMeter.getTimeSec()` 함수를 통해 연산 시간을 초 단위로 환산해서 반환한다.
+
+```cpp
+#include "opencv2/opencv.hpp"
+#include <iostream>
+
+int main(void)
+{
+    cv::TickMeter tm;  // 시간 측정 연산자 생성
+
+    cv::Mat img = cv::imread("path/to/image", cv::IMREAD_COLOR);
+    cv::Mat dst(img.rows, img.cols, img.type());
+
+    tm.start();  // 시작 측정 시작
+
+    for (int i = 0; i < img.rows; i++)
+    {
+        for (int j = 0; j < img.cols; j++)
+        {
+            dst.at<uchar>(i, j) = src.at<uchar>(i, j);
+        }
+    }
+
+    tm.stop()l  // 시간 측정 종료
+
+    std::cout << "time: " << tm.getTimeSec() << "sec." << std::endl;
+
+    return 0;
+}
+```
