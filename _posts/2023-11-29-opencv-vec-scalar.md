@@ -1,5 +1,5 @@
 ---
-title:
+title: OpenCV Vec Scalar
 author: yjh
 math: true
 categories: [CPP, OpenCV]
