@@ -1,6 +1,6 @@
 ---
-auyhot: yjh
 title: vscode 가상환경 site-pacakages path 설정
+author: yjh
 categories: [Python, Trouble Shooting]
 tags: [python, trouble shooting]
 ---
