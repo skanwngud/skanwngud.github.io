@@ -92,6 +92,7 @@ cv::Mat getGrayHist(cv::Mat &hist)
         cv::line(imgHist, cv::Point(i, 100), cv::Point(i, 100 - cvRound(hist.at<float>(i, 0) * 100 / histMax)), cv::Scalar(0));
     }
 
+  return imgHist;
 }
 ```
 
@@ -99,7 +100,7 @@ cv::Mat getGrayHist(cv::Mat &hist)
 
 - 영상의 픽셀분포를 전 구간에 걸쳐 나타내도록하는 선형 변환 기법이다.
 - 명암비가 낮은 이미지는 히스토그램이 특정 구간에 밀집 되어있는데, 이를 길게 늘리듯이 펼치는 방법이다.
-- 히스토그램 스트레칭을 하면 전반적인 명암비가 높아지므로 *대체로* 품질이 좋아진다.
+- 히스토그램 스트레칭을 하면 전반적인 명암비가 높아지므로 _대체로_ 품질이 좋아진다.
 - $dst(x,\;y) = (\frac{src(x, \;y) - G_{min}}{G_{max} - G_{min}}) * 255 \;(단, \;G_{max}, \;G_{min}은 \;픽셀 \;최대최소값)$
   - 해당식은 $G_{min}$값은 0으로 $G_{max}$값은 255로 늘리면서 히스토그램을 늘려준다.
 - 히스토그램 스트레칭에 대한 함수는 따로 제공하지 않으므로 직접 구현해야한다.
@@ -174,7 +175,7 @@ void histogramEqualize()
     cv::imshow("srcHist", getGrayHist(calcGrayHist(src)));
 
     cv::imshow("dst", dst);
-    cv::imshow("dstHist", getGrayHist(calcGrayHist(src)));
+    cv::imshow("dstHist", getGrayHist(calcGrayHist(dst)));
 
     cv::waitKey();
 }
