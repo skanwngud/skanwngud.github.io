@@ -2,7 +2,7 @@
 title: OpenCV 필터링
 author: yjh
 math: true
-categories: [CPP, OpenCv]
+categories: [CPP, OpenCV]
 tags: [cpp, opencv, book review]
 ---
 
