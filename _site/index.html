@@ -44,6 +44,7 @@
 <meta property="og:url" content="http://localhost:4000/" />
 <meta property="og:site_name" content="오답노트" />
 <meta property="og:type" content="website" />
+<link rel="next" href="http://localhost:4000/page2" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="오답노트" />
 <meta name="twitter:site" content="@twitter_username" />
@@ -500,7 +501,7 @@
 
   <div class="post-preview">
     <h1>
-      <a href="/posts/find-number-in-string/">숫자와 문자가 혼합 된 문자열에서 숫자만 찾기</a>
+      <a href="/posts/norm/">Norm</a>
     </h1>
 
     <div class="post-content">
@@ -511,22 +512,14 @@
 
 
 
-        Summary
-a_1, 100_a 등과 같은 문자 + 숫자 조합의 문자열에서 숫자 정보만 반환한다.
-
-Source Code
-import re
-
-int(&#39;&#39;.join(re.findall(&#39;\d&#39;, string)))
+        Norm
 
 
-Explanation
-import re
-
-
-re 라이브러리를 임포트해준다.
-
-re 라이브러니는 정규화 관련 함수들이 들어있는 라이브러리이...
+  Normalization 의 약자가 아님.
+  $\rVert x_p \lVert = \sqrt[p]{\sum_{i}\mid x_i^p\mid}\;where\; p\in\mathbb{R}$
+    
+      해당 공식에서 $p$는 차수를 의미하며 $p$가 1 이면 L1 Norm 이고 $p$가 2 이면 L2 Norm 이다.
+      $...
       </p>
     </div>
 
@@ -545,14 +538,21 @@ re 라이브러니는 정규화 관련 함수들이 들어있는 라이브러리
 
 
 <em class=""
-    data-ts="1679238000"
+    data-ts="1703689200"
     data-df="ll"
     >
-  Mar 20, 2023
+  Dec 28, 2023
 </em>
 
 
         <!-- categories -->
+        
+          <i class="far fa-folder-open fa-fw"></i>
+          <span>
+          
+            Math,
+            Linear Algebra
+          </span>
         
 
       </div>
@@ -567,7 +567,7 @@ re 라이브러니는 정규화 관련 함수들이 들어있는 라이브러리
 
   <div class="post-preview">
     <h1>
-      <a href="/posts/UML-1/">UML</a>
+      <a href="/posts/wsl-docker-reinstall/">Docker 삭제 후 재설치</a>
     </h1>
 
     <div class="post-content">
@@ -578,298 +578,89 @@ re 라이브러니는 정규화 관련 함수들이 들어있는 라이브러리
 
 
 
-        UML
+        최근에 내가 모르는 도커 이미지와 컨테이너가 반복적으로 생성 되는 것을 확인했다.
 
-  소스코드를 도형 및 화살표 등으로 기능을 설명함
+이유를 특정하기 어려웠으므로 일단 제일 간단한 방법인 삭제 후 재설치하는 방향으로 문제를 해결하였다.
+
+Docker 삭제
 
 
-종류
+  도커 엔진 삭제
 
-  정적인 부분
+
+sudo apt-get purge -y docker-engine docker docker-ce docker-ce-cli ...
+      </p>
+    </div>
+
+    <div class="post-meta text-muted d-flex">
+      <div class="mr-auto">
+
+        <!-- posted date -->
+        <i class="far fa-calendar fa-fw"></i>
+        <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em class=""
+    data-ts="1703343600"
+    data-df="ll"
+    >
+  Dec 24, 2023
+</em>
+
+
+        <!-- categories -->
+        
+          <i class="far fa-folder-open fa-fw"></i>
+          <span>
+          
+            Docker
+          </span>
+        
+
+      </div>
+
+      
+
+    </div> <!-- .post-meta -->
+
+  </div> <!-- .post-review -->
+
+
+
+  <div class="post-preview">
+    <h1>
+      <a href="/posts/cpp-operator-overloading/">연산자 오버로딩</a>
+    </h1>
+
+    <div class="post-content">
+      <p>
+        
+
+
+
+
+
+        연산자 오버로딩
+
+
+  +, -, *, /, +=, -=, ==, !=, ... 등 숫자등을 연산하는 연산자 함수의 오버로딩이 가능하다.
+  해당 함수들을 오버로딩하는 것으로 객체간의 오버로딩도 가능하게 된다.
+
+
+연산자 오버로딩의 형태
+
+
+  operator 함수로 오버로딩
     
-      단순 코드 나열하여 기능 설명
+      operator+, operator- …
     
   
-  동적인 부분
-    
-      sequence diagram, 소스코드의 flow 를 설명함
-    
-  
-
-
-구조
-Class Diagram (정적)
-
-  Life Ccle 을 관리하면 UML 화...
-      </p>
-    </div>
-
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
-
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-
-<em class=""
-    data-ts="1679238000"
-    data-df="ll"
-    >
-  Mar 20, 2023
-</em>
-
-
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            UML
-          </span>
-        
-
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/computer-structure-3/">컴퓨터 구조 (3)</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        실수를 표현하는 방법
-
-고정소수점 표현법
-
-
-  2진 소수점의 위치를 임의로 정하는 방법
-  4비트가 있다고했을 때 2비트는 소수점의 오른쪽에 있는 분수를 표현하고 2비트는 왼쪽에 있는 숫자들을 표현하는데 쓸 수 있다.
-    
-      2비트 = 분수, 2비트 = 정수 표시
-      
-        정수를 나타내는 비트는 동일하며 분수를 나타내는...
-      </p>
-    </div>
-
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
-
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-
-<em class=""
-    data-ts="1678892400"
-    data-df="ll"
-    >
-  Mar 16, 2023
-</em>
-
-
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Computer Science
-          </span>
-        
-
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/computer-structure-2/">컴퓨터 구조 (2)</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        비트를 사용해 정수를 표현하기
-정수 표현
-실생활의 우리가 주로 사용하고 있는 수는 10 진수demical number이다.
-
-0 ~ 9 까지를 한 자리에 나타낼 수 있으며  9를 넘는 수는 10 을 곱하여 다시 시작한다.
-
-이때 자릿수가 커짐에 따라 10 의 거듭제곱으로 커지게 되며, 지수 부분이 적용 될 밑수base-number 가 10 이기 때문에...
-      </p>
-    </div>
-
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
-
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-
-<em class=""
-    data-ts="1678806000"
-    data-df="ll"
-    >
-  Mar 15, 2023
-</em>
-
-
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Computer Science
-          </span>
-        
-
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/make-batch-list/">배치리스트 만들기</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        Summary
-파일명이나 이미지 등이 들어가있는 리스트와 배치 사이즈를 입력 받아 그 리스트를 배치 단위로 잘라주는 함수이다.
-
-Source Code
-def make_batch_list(self, file_list: List[], batch_size: int) -&amp;gt; List[]:
-    result_list = []
-
-    for idx in ...
-      </p>
-    </div>
-
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
-
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-
-<em class=""
-    data-ts="1678719600"
-    data-df="ll"
-    >
-  Mar 14, 2023
-</em>
-
-
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Python,
-            Snippet
-          </span>
-        
-
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/computer-structure-1/">컴퓨터 구조 (1)</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        컴퓨터 내부의 언어 체계
-
-  언어란? 기호의 집합으로 인코딩encoding 된 것을 당사자들간 모두 같은 문맥context 로 의사소통하는 것
-
-
-비트bit
-
-  binary + digit 의 합성어
-  0, 1 을 나타내는 이진법 사용
-  기호는 주관적이므로 켜짐 / 꺼짐, 낮 / 밤 등이 될 수 있다
-
-
-논리연산logical operation
-
 ...
       </p>
     </div>
@@ -889,10 +680,10 @@ def make_batch_list(self, file_list: List[], batch_size: int) -&amp;gt; List[]:
 
 
 <em class=""
-    data-ts="1678633200"
+    data-ts="1702652400"
     data-df="ll"
     >
-  Mar 13, 2023
+  Dec 16, 2023
 </em>
 
 
@@ -901,7 +692,7 @@ def make_batch_list(self, file_list: List[], batch_size: int) -&amp;gt; List[]:
           <i class="far fa-folder-open fa-fw"></i>
           <span>
           
-            Computer Science
+            CPP
           </span>
         
 
@@ -917,7 +708,7 @@ def make_batch_list(self, file_list: List[], batch_size: int) -&amp;gt; List[]:
 
   <div class="post-preview">
     <h1>
-      <a href="/posts/ubuntu-env-setting-3/">우분투 환경 세팅 (3)</a>
+      <a href="/posts/cpp-error-1/">undefined reference to `std::ostream::operator<<(std::ostream& (*)(std::ostream&))'</a>
     </h1>
 
     <div class="post-content">
@@ -928,19 +719,11 @@ def make_batch_list(self, file_list: List[], batch_size: int) -&amp;gt; List[]:
 
 
 
-        설치 환경
+        문제
 
-  Geforece 3090
-  Ubuntu 20.04 LTS
+undefined reference to std::ostream::operator&amp;lt;&amp;lt;(std::ostream&amp;amp; (*)(std::ostream&amp;amp;))&#39;라는 메세지와 함께 컴파일이 되지 않았다.
 
-
-Git 설치
-sudo apt-get install git 명령어로 설치 가능하다
-
-git --version 혹은 git -V 으로 설치 여부를 확인한 뒤 git config 명령어로 설정을 완료한다
-
-git config --user.name {user_name}
-git co...
+#include &amp;lt;iostream&amp;gt;도 제대로 선언했었고, namespace도 제대로 지정해주었으나, 계속 같은 문제가 ...
       </p>
     </div>
 
@@ -959,10 +742,10 @@ git co...
 
 
 <em class=""
-    data-ts="1678546800"
+    data-ts="1702479600"
     data-df="ll"
     >
-  Mar 12, 2023
+  Dec 14, 2023
 </em>
 
 
@@ -971,8 +754,7 @@ git co...
           <i class="far fa-folder-open fa-fw"></i>
           <span>
           
-            Ubuntu,
-            Settings
+            CPP
           </span>
         
 
@@ -988,7 +770,7 @@ git co...
 
   <div class="post-preview">
     <h1>
-      <a href="/posts/ubuntu-env-setting-2/">우분투 환경 세팅 (2)</a>
+      <a href="/posts/opencv-trackbar/">OpenCV 트랙바 생성</a>
     </h1>
 
     <div class="post-content">
@@ -999,18 +781,13 @@ git co...
 
 
 
-        설치 환경
-
-  Geforce 3090
-  Ubuntu 20.04 LTS
+        트랙바 생성
 
 
-Anaconda 설치
-Anaconda official site 를 통해 자신의 os 에 맞는 버전을 선택해 다운로드 받는다
-
-파일이 다운로드 된 경로로 이동해 설치를 진행하기 전 sha256sum {file_name} 명령어를 통해 데이터 무결성을 검사한다
-
-해당 명령어를 입...
+  트랙바 관련 콜백 함수cv::createTrackbar를 cv::setTrackbarPos 함수에 전달한다.
+  cv::createTrackbar(trackbar name, window name, pos, level, call back function, image);
+    
+      pos는 트랙바가 어디서 시작할지를 지정한다....
       </p>
     </div>
 
@@ -1029,10 +806,10 @@ Anaconda official site 를 통해 자신의 os 에 맞는 버전을 선택해 �
 
 
 <em class=""
-    data-ts="1678460400"
+    data-ts="1702306800"
     data-df="ll"
     >
-  Mar 11, 2023
+  Dec 12, 2023
 </em>
 
 
@@ -1041,8 +818,8 @@ Anaconda official site 를 통해 자신의 os 에 맞는 버전을 선택해 �
           <i class="far fa-folder-open fa-fw"></i>
           <span>
           
-            Ubuntu,
-            Settings
+            CPP,
+            OpenCV
           </span>
         
 
@@ -1058,7 +835,7 @@ Anaconda official site 를 통해 자신의 os 에 맞는 버전을 선택해 �
 
   <div class="post-preview">
     <h1>
-      <a href="/posts/ubuntu-env-setting-1/">우분투 환경 세팅 (1)</a>
+      <a href="/posts/opencv-mask/">OpenCV 마스크 연산</a>
     </h1>
 
     <div class="post-content">
@@ -1069,19 +846,26 @@ Anaconda official site 를 통해 자신의 os 에 맞는 버전을 선택해 �
 
 
 
-        설치 환경
-
-  Geforce 3090
-  Ubuntu 20.04 LTS
+        마스크 연산
 
 
-pre-setting
-그래픽 드라이버를 설치하기 전 필요한 패키지들을 먼저 설치해준다
+  
+    영상 (프레임), 이미지 등의 일부 영역에 대해서만 특정 연산을 수행하는 것.
+  
+  
+    주로 영상을 그레이스케일로 변환한 뒤 연산한다.
+  
 
-sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade -y
 
-sudo apt-get install openssh-server
-sudo apt-get ...
+setTo
+
+
+  operator::Mat.setTo(마스크 값, 마스크 행렬);의 형태
+
+
+#include &quot;opencv2/opencv.hpp&quot;
+
+int main(voi...
       </p>
     </div>
 
@@ -1100,10 +884,10 @@ sudo apt-get ...
 
 
 <em class=""
-    data-ts="1678287600"
+    data-ts="1702306800"
     data-df="ll"
     >
-  Mar  9, 2023
+  Dec 12, 2023
 </em>
 
 
@@ -1112,8 +896,273 @@ sudo apt-get ...
           <i class="far fa-folder-open fa-fw"></i>
           <span>
           
-            Ubuntu,
-            Settings
+            CPP,
+            OpenCV
+          </span>
+        
+
+      </div>
+
+      
+
+    </div> <!-- .post-meta -->
+
+  </div> <!-- .post-review -->
+
+
+
+  <div class="post-preview">
+    <h1>
+      <a href="/posts/opencv-io/">OpenCV 파일 입출력</a>
+    </h1>
+
+    <div class="post-content">
+      <p>
+        
+
+
+
+
+
+        파일 입출력
+
+
+  uchar를 사용하는 이미지 뿐만 아니라 int, double 등을 사용하는 일반 배열의 행렬도 저장 가능히디.
+  json 형식의 파일도 저장 가능하다.
+  cv::FileStorage 함수로 변수 선언한다.
+  cv::FileStorage 함수의 flag로 파일을 읽을 것인지 쓸 것인지를 지정한디.
+    
+      flag에...
+      </p>
+    </div>
+
+    <div class="post-meta text-muted d-flex">
+      <div class="mr-auto">
+
+        <!-- posted date -->
+        <i class="far fa-calendar fa-fw"></i>
+        <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em class=""
+    data-ts="1702306800"
+    data-df="ll"
+    >
+  Dec 12, 2023
+</em>
+
+
+        <!-- categories -->
+        
+          <i class="far fa-folder-open fa-fw"></i>
+          <span>
+          
+            CPP,
+            OpenCV
+          </span>
+        
+
+      </div>
+
+      
+
+    </div> <!-- .post-meta -->
+
+  </div> <!-- .post-review -->
+
+
+
+  <div class="post-preview">
+    <h1>
+      <a href="/posts/opencv-mouse-event/">OpenCV 마우스 이벤트</a>
+    </h1>
+
+    <div class="post-content">
+      <p>
+        
+
+
+
+
+
+        마우스 이벤트
+
+
+  마우스 콜백함수를 정의한 뒤 cv::setMouseCallback() 함수에 전달한다.
+  마우스 이벤트에는 왼쪽, 오른족, 가운데 버튼 등을 지정할 수 있고 업, 다운, 클릭, 드래그 등이 있다.
+  cv::setMouseCallback(window name, call-back function);
+
+
+#include &quot;openc...
+      </p>
+    </div>
+
+    <div class="post-meta text-muted d-flex">
+      <div class="mr-auto">
+
+        <!-- posted date -->
+        <i class="far fa-calendar fa-fw"></i>
+        <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em class=""
+    data-ts="1701874800"
+    data-df="ll"
+    >
+  Dec  7, 2023
+</em>
+
+
+        <!-- categories -->
+        
+          <i class="far fa-folder-open fa-fw"></i>
+          <span>
+          
+            CPP,
+            OpenCV
+          </span>
+        
+
+      </div>
+
+      
+
+    </div> <!-- .post-meta -->
+
+  </div> <!-- .post-review -->
+
+
+
+  <div class="post-preview">
+    <h1>
+      <a href="/posts/opencv-video-handling/">OpenCV 비디오 다루기</a>
+    </h1>
+
+    <div class="post-content">
+      <p>
+        
+
+
+
+
+
+        Video Capture
+
+
+  영상 파일을 불러오거나 장치에 연결 되어있는 카메라에서 이미지 (프레임) 을 받아옴
+  영상 파일을 불러올 때엔 cv::VideoCapture cap(&quot;./path/to/file&quot;);을
+  장치에 연결 된 카메라에서 프레임을 불러올 때에는 cv::VideoCapture cap(0);을 입력한다.
+    
+      0은...
+      </p>
+    </div>
+
+    <div class="post-meta text-muted d-flex">
+      <div class="mr-auto">
+
+        <!-- posted date -->
+        <i class="far fa-calendar fa-fw"></i>
+        <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em class=""
+    data-ts="1701702000"
+    data-df="ll"
+    >
+  Dec  5, 2023
+</em>
+
+
+        <!-- categories -->
+        
+
+      </div>
+
+      
+
+    </div> <!-- .post-meta -->
+
+  </div> <!-- .post-review -->
+
+
+
+  <div class="post-preview">
+    <h1>
+      <a href="/posts/opencv-vec-scalar/">Opencv Vec Scalar</a>
+    </h1>
+
+    <div class="post-content">
+      <p>
+        
+
+
+
+
+
+        Vec 클래스
+
+
+  OpenCV에서 지원하는 데이터 타입
+  특정 벡터에 접근할 수 있는 .val() 멤버 함수 존재
+    
+      [] 연산자 재정의로 vector.val(int x)를 vector[int x]로 접근 가능함
+    
+  
+
+
+#include &quot;opencv2/opencv.hpp&quot;
+
+#include &amp;lt;iostream&amp;gt;...
+      </p>
+    </div>
+
+    <div class="post-meta text-muted d-flex">
+      <div class="mr-auto">
+
+        <!-- posted date -->
+        <i class="far fa-calendar fa-fw"></i>
+        <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em class=""
+    data-ts="1701183600"
+    data-df="ll"
+    >
+  Nov 29, 2023
+</em>
+
+
+        <!-- categories -->
+        
+          <i class="far fa-folder-open fa-fw"></i>
+          <span>
+          
+            CPP,
+            OpenCV
           </span>
         
 
@@ -1167,17 +1216,88 @@ sudo apt-get ...
 
   
 
+    
+    
+    
+    
+    
+
+    
+
+    
+      <!-- show number -->
+      <li class="page-item ">
+        <a class="page-link btn-box-shadow" href="/page2">2</a>
+      </li>
+    
+
+  
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      <!-- show number -->
+      <li class="page-item ">
+        <a class="page-link btn-box-shadow" href="/page3">3</a>
+      </li>
+    
+
+  
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      <!-- hide number -->
+      
+        <li class="page-item disabled">
+          <span class="page-link btn-box-shadow">...</span>
+        </li>
+        
+      
+    
+
+  
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      <!-- show number -->
+      <li class="page-item ">
+        <a class="page-link btn-box-shadow" href="/page5">5</a>
+      </li>
+    
+
+  
+
   <!-- mobile pagination -->
   <li class="page-index align-middle">
     <span>1</span>
-    <span class="text-muted">/ 1</span>
+    <span class="text-muted">/ 5</span>
   </li>
 
   <!-- right arrow -->
   
 
-  <li class="page-item disabled">
-    <a class="page-link btn-box-shadow" href="#" aria-label="next-page">
+  <li class="page-item ">
+    <a class="page-link btn-box-shadow" href="/page2" aria-label="next-page">
       <i class="fas fa-angle-right"></i>
     </a>
   </li>
@@ -1220,27 +1340,27 @@ sudo apt-get ...
         
         
         
-      <li><a href="/posts/find-number-in-string/">숫자와 문자가 혼합 된 문자열에서 숫자만 찾기</a></li>
+      <li><a href="/posts/opencv-mask/">OpenCV 마스크 연산</a></li>
       
         
         
         
-      <li><a href="/posts/ubuntu-env-setting-1/">우분투 환경 세팅 (1)</a></li>
+      <li><a href="/posts/norm/">Norm</a></li>
       
         
         
         
-      <li><a href="/posts/ubuntu-env-setting-2/">우분투 환경 세팅 (2)</a></li>
+      <li><a href="/posts/opencv-mouse-event/">OpenCV 마우스 이벤트</a></li>
       
         
         
         
-      <li><a href="/posts/ubuntu-env-setting-3/">우분투 환경 세팅 (3)</a></li>
+      <li><a href="/posts/opencv-video-handling/">OpenCV 비디오 다루기</a></li>
       
         
         
         
-      <li><a href="/posts/computer-structure-2/">컴퓨터 구조 (2)</a></li>
+      <li><a href="/posts/opencv-crop/">OpenCV 행렬 범위 참조</a></li>
       
     </ul>
   </div> <!-- #access-lastmod -->
@@ -1278,6 +1398,89 @@ sudo apt-get ...
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -1337,47 +1540,10 @@ sudo apt-get ...
     
     
     
-      
-    
   
     
     
     
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1413,12 +1579,343 @@ sudo apt-get ...
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
     
   
     
     
     
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1456,16 +1953,10 @@ sudo apt-get ...
     
     
     
-      
-        
-        
-
   
     
     
     
-    
-      
     
   
     
@@ -1477,16 +1968,10 @@ sudo apt-get ...
     
     
     
-      
-        
-        
-
   
     
     
     
-    
-      
     
   
     
@@ -1498,24 +1983,6 @@ sudo apt-get ...
     
     
     
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1526,14 +1993,10 @@ sudo apt-get ...
     
     
     
-      
-    
   
     
     
     
-    
-      
     
   
     
@@ -1549,7 +2012,45 @@ sudo apt-get ...
     
     
     
-      
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -1562,35 +2063,6 @@ sudo apt-get ...
     
     
       
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -1614,34 +2086,34 @@ sudo apt-get ...
 
     
       
+      <a class="post-tag" href="/tags/cpp/">cpp</a>
+    
+      
+      <a class="post-tag" href="/tags/opencv/">opencv</a>
+    
+      
+      <a class="post-tag" href="/tags/cs/">cs</a>
+    
+      
+      <a class="post-tag" href="/tags/linux/">linux</a>
+    
+      
+      <a class="post-tag" href="/tags/python/">python</a>
+    
+      
       <a class="post-tag" href="/tags/settings/">settings</a>
     
       
       <a class="post-tag" href="/tags/ubuntu/">ubuntu</a>
     
       
-      <a class="post-tag" href="/tags/cs/">cs</a>
+      <a class="post-tag" href="/tags/windows/">windows</a>
     
       
-      <a class="post-tag" href="/tags/python/">python</a>
+      <a class="post-tag" href="/tags/linear-algebra/">linear algebra</a>
     
       
-      <a class="post-tag" href="/tags/snippet/">snippet</a>
-    
-      
-      <a class="post-tag" href="/tags/anaconda/">anaconda</a>
-    
-      
-      <a class="post-tag" href="/tags/cuda/">cuda</a>
-    
-      
-      <a class="post-tag" href="/tags/cudnn/">cudnn</a>
-    
-      
-      <a class="post-tag" href="/tags/git/">git</a>
-    
-      
-      <a class="post-tag" href="/tags/uml/">uml</a>
+      <a class="post-tag" href="/tags/math/">math</a>
     
 
     </div>
@@ -1697,6 +2169,89 @@ sudo apt-get ...
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -1756,47 +2311,10 @@ sudo apt-get ...
     
     
     
-      
-    
   
     
     
     
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1832,12 +2350,343 @@ sudo apt-get ...
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
     
   
     
     
     
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1875,16 +2724,10 @@ sudo apt-get ...
     
     
     
-      
-        
-        
-
   
     
     
     
-    
-      
     
   
     
@@ -1896,16 +2739,10 @@ sudo apt-get ...
     
     
     
-      
-        
-        
-
   
     
     
     
-    
-      
     
   
     
@@ -1917,24 +2754,6 @@ sudo apt-get ...
     
     
     
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1945,14 +2764,10 @@ sudo apt-get ...
     
     
     
-      
-    
   
     
     
     
-    
-      
     
   
     
@@ -1968,7 +2783,45 @@ sudo apt-get ...
     
     
     
-      
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -1981,35 +2834,6 @@ sudo apt-get ...
     
     
       
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -2033,34 +2857,34 @@ sudo apt-get ...
 
     
       
+      <a class="post-tag" href="/tags/cpp/">cpp</a>
+    
+      
+      <a class="post-tag" href="/tags/opencv/">opencv</a>
+    
+      
+      <a class="post-tag" href="/tags/cs/">cs</a>
+    
+      
+      <a class="post-tag" href="/tags/linux/">linux</a>
+    
+      
+      <a class="post-tag" href="/tags/python/">python</a>
+    
+      
       <a class="post-tag" href="/tags/settings/">settings</a>
     
       
       <a class="post-tag" href="/tags/ubuntu/">ubuntu</a>
     
       
-      <a class="post-tag" href="/tags/cs/">cs</a>
+      <a class="post-tag" href="/tags/windows/">windows</a>
     
       
-      <a class="post-tag" href="/tags/python/">python</a>
+      <a class="post-tag" href="/tags/linear-algebra/">linear algebra</a>
     
       
-      <a class="post-tag" href="/tags/snippet/">snippet</a>
-    
-      
-      <a class="post-tag" href="/tags/anaconda/">anaconda</a>
-    
-      
-      <a class="post-tag" href="/tags/cuda/">cuda</a>
-    
-      
-      <a class="post-tag" href="/tags/cudnn/">cudnn</a>
-    
-      
-      <a class="post-tag" href="/tags/git/">git</a>
-    
-      
-      <a class="post-tag" href="/tags/uml/">uml</a>
+      <a class="post-tag" href="/tags/math/">math</a>
     
 
     </div>

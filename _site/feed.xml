@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>오답노트</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-03-20T22:47:26+09:00</updated>
+  <updated>2023-12-28T12:02:36+09:00</updated>
   <author>
     <name>JuHyeong Yoo</name>
     <uri>http://localhost:4000/</uri>
@@ -20,19 +20,23 @@
 
   
   <entry>
-    <title>숫자와 문자가 혼합 된 문자열에서 숫자만 찾기</title>
-    <link href="http://localhost:4000/posts/find-number-in-string/" rel="alternate" type="text/html" title="숫자와 문자가 혼합 된 문자열에서 숫자만 찾기" />
-    <published>2023-03-20T00:00:00+09:00</published>
+    <title>Norm</title>
+    <link href="http://localhost:4000/posts/norm/" rel="alternate" type="text/html" title="Norm" />
+    <published>2023-12-28T00:00:00+09:00</published>
   
-    <updated>2023-03-20T21:43:28+09:00</updated>
+    <updated>2023-12-28T11:50:37+09:00</updated>
   
-    <id>http://localhost:4000/posts/find-number-in-string/</id>
-    <content src="http://localhost:4000/posts/find-number-in-string/" />
+    <id>http://localhost:4000/posts/norm/</id>
+    <content src="http://localhost:4000/posts/norm/" />
     <author>
       <name>yjh</name>
     </author>
 
   
+    
+    <category term="Math" />
+    
+    <category term="Linear Algebra" />
     
   
 
@@ -44,34 +48,22 @@
 
 
 
-      Summary
-a_1, 100_a 등과 같은 문자 + 숫자 조합의 문자열에서 숫자 정보만 반환한다.
-
-Source Code
-import re
-
-int(''.join(re.findall('\d', string)))
+      Norm
 
 
-Explanation
-import re
-
-
-re 라이브러리를 임포트해준다.
-
-re 라이브러니는 정규화 관련 함수들이 들어있는 라이브러리이다.
-
-짧은 한 줄의 코드를 굳이 구분을 짓자면 re.findall('\d', string), ''.join(), int() 이렇게 3개로 나눌 수 있는데,
-
-re.findall('\d', string)
-
-
-이 코드는 string 이라는 문자열 안에 있는 숫자 ('\d') 를 전부 찾아내 리스트 형태로 반환한다.
-
-''.join()
-
-
-괄호 안에 있는 it...
+  Normalization 의 약자가 아님.
+  $\rVert x_p \lVert = \sqrt[p]{\sum_{i}\mid x_i^p\mid}\;where\; p\in\mathbb{R}$
+    
+      해당 공식에서 $p$는 차수를 의미하며 $p$가 1 이면 L1 Norm 이고 $p$가 2 이면 L2 Norm 이다.
+      $p = 1$ 일 때 그래프를 그려보면 마름모꼴이 되고 $p = 2$ 의 그래프는 원이다가 그 이후 $p$가 커질수록 점점 사각형에 가까운 형태가 된다.
+    
+  
+  공간 상에서 벡터 (Vector) 의 총 길이를 나타낸다.
+    
+      원점 $O$ 으로부터의 벡터 거리 혹은 크기
+    
+  
+  일반적으로 L0 Norm, L1 Norm, L2...
     </summary>
   
 
@@ -79,21 +71,21 @@ re.findall('\d', string)
 
   
   <entry>
-    <title>UML</title>
-    <link href="http://localhost:4000/posts/UML-1/" rel="alternate" type="text/html" title="UML" />
-    <published>2023-03-20T00:00:00+09:00</published>
+    <title>Docker 삭제 후 재설치</title>
+    <link href="http://localhost:4000/posts/wsl-docker-reinstall/" rel="alternate" type="text/html" title="Docker 삭제 후 재설치" />
+    <published>2023-12-24T00:00:00+09:00</published>
   
-    <updated>2023-03-20T00:00:00+09:00</updated>
+    <updated>2023-12-24T00:00:00+09:00</updated>
   
-    <id>http://localhost:4000/posts/UML-1/</id>
-    <content src="http://localhost:4000/posts/UML-1/" />
+    <id>http://localhost:4000/posts/wsl-docker-reinstall/</id>
+    <content src="http://localhost:4000/posts/wsl-docker-reinstall/" />
     <author>
       <name>yjh</name>
     </author>
 
   
     
-    <category term="UML" />
+    <category term="Docker" />
     
   
 
@@ -105,36 +97,27 @@ re.findall('\d', string)
 
 
 
-      UML
+      최근에 내가 모르는 도커 이미지와 컨테이너가 반복적으로 생성 되는 것을 확인했다.
 
-  소스코드를 도형 및 화살표 등으로 기능을 설명함
+이유를 특정하기 어려웠으므로 일단 제일 간단한 방법인 삭제 후 재설치하는 방향으로 문제를 해결하였다.
 
-
-종류
-
-  정적인 부분
-    
-      단순 코드 나열하여 기능 설명
-    
-  
-  동적인 부분
-    
-      sequence diagram, 소스코드의 flow 를 설명함
-    
-  
+Docker 삭제
 
 
-구조
-Class Diagram (정적)
+  도커 엔진 삭제
 
-  Life Ccle 을 관리하면 UML 화살표 상에서 검은색으로 칠함
-  Association (상관 관계)
-    
-      양방향
-      단반향
-      Recursive (design pattern 등에서 자주 사용)
-      Inner class; a 클래스가 b 클래스 안에서 선언 되어 사용
-      Dependancy; a 클래스의 내부의 함수에서 b 클래스가 사용 됨 (a ...
+
+sudo apt-get purge -y docker-engine docker docker-ce docker-ce-cli docker.io
+sudo apt-get autoremove -y --purge docker-engine docker docker-ce docker.io
+
+
+
+  컨테이너, 이미지, 볼륨 등 사용자가 만든 파일 등 모두 삭제
+
+
+sudo rm -rf /var/lib/docker /etc/docker
+sudo rm /etc/apparmor.d/docker
+s...
     </summary>
   
 
@@ -142,21 +125,21 @@ Class Diagram (정적)
 
   
   <entry>
-    <title>컴퓨터 구조 (3)</title>
-    <link href="http://localhost:4000/posts/computer-structure-3/" rel="alternate" type="text/html" title="컴퓨터 구조 (3)" />
-    <published>2023-03-16T00:00:00+09:00</published>
+    <title>연산자 오버로딩</title>
+    <link href="http://localhost:4000/posts/cpp-operator-overloading/" rel="alternate" type="text/html" title="연산자 오버로딩" />
+    <published>2023-12-16T00:00:00+09:00</published>
   
-    <updated>2023-03-16T00:00:00+09:00</updated>
+    <updated>2023-12-16T00:00:00+09:00</updated>
   
-    <id>http://localhost:4000/posts/computer-structure-3/</id>
-    <content src="http://localhost:4000/posts/computer-structure-3/" />
+    <id>http://localhost:4000/posts/cpp-operator-overloading/</id>
+    <content src="http://localhost:4000/posts/cpp-operator-overloading/" />
     <author>
       <name>yjh</name>
     </author>
 
   
     
-    <category term="Computer Science" />
+    <category term="CPP" />
     
   
 
@@ -168,26 +151,33 @@ Class Diagram (정적)
 
 
 
-      실수를 표현하는 방법
-
-고정소수점 표현법
+      연산자 오버로딩
 
 
-  2진 소수점의 위치를 임의로 정하는 방법
-  4비트가 있다고했을 때 2비트는 소수점의 오른쪽에 있는 분수를 표현하고 2비트는 왼쪽에 있는 숫자들을 표현하는데 쓸 수 있다.
+  +, -, *, /, +=, -=, ==, !=, ... 등 숫자등을 연산하는 연산자 함수의 오버로딩이 가능하다.
+  해당 함수들을 오버로딩하는 것으로 객체간의 오버로딩도 가능하게 된다.
+
+
+연산자 오버로딩의 형태
+
+
+  operator 함수로 오버로딩
     
-      2비트 = 분수, 2비트 = 정수 표시
-      
-        정수를 나타내는 비트는 동일하며 분수를 나타내는 비트는 2의 음의 거듭제곱처럼 나타낸다
-
-\[2^1 + 2^0 \, . 2^{-1} + 2^{-2}\]
-      
+      operator+, operator- …
     
   
-  해당 방법은 실수값을 표현하기 위해 필요한 비트가 너무 많기 때문에 범용 컴퓨터에서 사용하는 경우는 드물지만, 디지털 신호 처리 장치 (DSP; Digital Signal Processor) 에선 종종 사용.
 
 
-부동소수점...
+멤버변수로만 오버로딩 가능한 연산자
+
+
+  연산자 오버로딩은 전역함수, 멤버함수로 오버로딩이 가능한데, 이때 멤버함수로만 오버로딩 할 수 있는 연산자가 존재한다.
+    
+      객체를 대상으로 진행해야 의미가 있기 때문이다.
+      =(대입)
+      ()(함수 호출)
+      [](배열 접근 (인덱스))
+      -&amp;gt;(멤버 접근을 ...
     </summary>
   
 
@@ -195,21 +185,21 @@ Class Diagram (정적)
 
   
   <entry>
-    <title>컴퓨터 구조 (2)</title>
-    <link href="http://localhost:4000/posts/computer-structure-2/" rel="alternate" type="text/html" title="컴퓨터 구조 (2)" />
-    <published>2023-03-15T00:00:00+09:00</published>
+    <title>undefined reference to `std::ostream::operator<<(std::ostream&amp; (*)(std::ostream&amp;))'</title>
+    <link href="http://localhost:4000/posts/cpp-error-1/" rel="alternate" type="text/html" title="undefined reference to `std::ostream::operator<<(std::ostream&amp; (*)(std::ostream&amp;))'" />
+    <published>2023-12-14T00:00:00+09:00</published>
   
-    <updated>2023-03-15T22:09:47+09:00</updated>
+    <updated>2023-12-14T00:00:00+09:00</updated>
   
-    <id>http://localhost:4000/posts/computer-structure-2/</id>
-    <content src="http://localhost:4000/posts/computer-structure-2/" />
+    <id>http://localhost:4000/posts/cpp-error-1/</id>
+    <content src="http://localhost:4000/posts/cpp-error-1/" />
     <author>
       <name>yjh</name>
     </author>
 
   
     
-    <category term="Computer Science" />
+    <category term="CPP" />
     
   
 
@@ -221,20 +211,24 @@ Class Diagram (정적)
 
 
 
-      비트를 사용해 정수를 표현하기
-정수 표현
-실생활의 우리가 주로 사용하고 있는 수는 10 진수demical number이다.
+      문제
 
-0 ~ 9 까지를 한 자리에 나타낼 수 있으며  9를 넘는 수는 10 을 곱하여 다시 시작한다.
+undefined reference to std::ostream::operator&amp;lt;&amp;lt;(std::ostream&amp;amp; (*)(std::ostream&amp;amp;))'라는 메세지와 함께 컴파일이 되지 않았다.
 
-이때 자릿수가 커짐에 따라 10 의 거듭제곱으로 커지게 되며, 지수 부분이 적용 될 밑수base-number 가 10 이기 때문에 10진수라는 이름이 붙여졌다.
+#include &amp;lt;iostream&amp;gt;도 제대로 선언했었고, namespace도 제대로 지정해주었으나, 계속 같은 문제가 발생하였다.
 
-이와 마찬가지로 2진수는 0 ~ 1 까지를 한 자리에 나타낼 수 있는 셈법이며 1 을 초과하는 수를 나타낼 땐 2 를 곱하여 다시 시작한다.
+해결
 
-자릿수가 바뀔 때마다 2 의 거듭제곱순으로 커지게 되며, 밑수가 2 이기 때문에 2 진수라는 이름이 붙었다.
+검색을 해보니 컴파일러의 지정이 제대로 되어있지 않았던 문제였다.
 
+tasks.json을 가보니 command 블럭에 /usr/bin/gcc로 되어있는 것을 확인했다.
 
-  10진수: \(... 10^5 + 10^4 + 10^3 + 10^...
+/usr/bin/g++로 수정하여 c++로 컴파일하도록 수정하는 것으로 정상작동하는 것을 확인하였다.
+
+{
+  "tasks": [
+    {
+      "type": ...
     </summary>
   
 
@@ -242,23 +236,23 @@ Class Diagram (정적)
 
   
   <entry>
-    <title>배치리스트 만들기</title>
-    <link href="http://localhost:4000/posts/make-batch-list/" rel="alternate" type="text/html" title="배치리스트 만들기" />
-    <published>2023-03-14T00:00:00+09:00</published>
+    <title>OpenCV 트랙바 생성</title>
+    <link href="http://localhost:4000/posts/opencv-trackbar/" rel="alternate" type="text/html" title="OpenCV 트랙바 생성" />
+    <published>2023-12-12T00:00:00+09:00</published>
   
-    <updated>2023-03-15T20:56:11+09:00</updated>
+    <updated>2023-12-12T00:00:00+09:00</updated>
   
-    <id>http://localhost:4000/posts/make-batch-list/</id>
-    <content src="http://localhost:4000/posts/make-batch-list/" />
+    <id>http://localhost:4000/posts/opencv-trackbar/</id>
+    <content src="http://localhost:4000/posts/opencv-trackbar/" />
     <author>
       <name>yjh</name>
     </author>
 
   
     
-    <category term="Python" />
+    <category term="CPP" />
     
-    <category term="Snippet" />
+    <category term="OpenCV" />
     
   
 
@@ -270,18 +264,23 @@ Class Diagram (정적)
 
 
 
-      Summary
-파일명이나 이미지 등이 들어가있는 리스트와 배치 사이즈를 입력 받아 그 리스트를 배치 단위로 잘라주는 함수이다.
+      트랙바 생성
 
-Source Code
-def make_batch_list(self, file_list: List[], batch_size: int) -&amp;gt; List[]:
-    result_list = []
 
-    for idx in range(0, len(file_list), batch_size):
-        if idx + batch_size &amp;lt; len(file_list):
-            result_list.append(file_list[idx:idx+batch_size])
-        else:
-            result_list.append(file_l...
+  트랙바 관련 콜백 함수cv::createTrackbar를 cv::setTrackbarPos 함수에 전달한다.
+  cv::createTrackbar(trackbar name, window name, pos, level, call back function, image);
+    
+      pos는 트랙바가 어디서 시작할지를 지정한다.
+    
+  
+  콜백 함수 내에서는 cv::getTrackbarPos 함수를 통해 트랙바가 위치한 윈도우에서 값을 받아온다.
+
+
+#include "opencv2/opencv.hpp"
+
+void on_level_change(int pose, void* userdata);  // 콜백 함수 선언
+
+cv::Mat img = cv::Mat::zeros(400,...
     </summary>
   
 
