@@ -76,7 +76,7 @@ void noise_gaussian()
 - 대부분의 영상에는 가우시안 잡음이 포함 되어있으므로 가우시안 필터를 통해 노이즈를 제거한다.
   - 가우시안 필터를 이용한 노이즈 제거는 가우시안 잡음을 효과적으로 제거하지만 그만큼 에지 성분도 감소하게 되면서 영상이 전체적으로 흐릿해진다.
   - 양방향 필터를 이용하게 되면 에지 성분은 유지하되 잡음은 제거할 수 있다.
-- $G_p = \frac{1}{W_p}\sum\limits_{q\in{S}}G_{\sigma_s}(\|p - q\|)G_{\sigma_r}(|\int_p - \int_q|)$
+- $G_p = \frac{1}{W_p}\sum\limits_{q\in{S}}G_{\sigma_s}(\rVert p - q \lVert)G_{\sigma_r}(\mid \int_p - \int_q \mid)$
   - $\int$는 입력, $G$는 출력이다.
   - $p, q$는 각각 픽셀의 좌표이다.
   - $\int_p, \int_q$는 $p$점과 $q$점간의 입력 영상 픽셀값, $G_p$는 p$점에서의 출력영상 픽셀값이다.
