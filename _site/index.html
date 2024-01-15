@@ -501,7 +501,7 @@
 
   <div class="post-preview">
     <h1>
-      <a href="/posts/norm/">Norm</a>
+      <a href="/posts/opencv-affine/">Opencv Affine</a>
     </h1>
 
     <div class="post-content">
@@ -512,156 +512,17 @@
 
 
 
-        Norm
-
-
-  Normalization 의 약자가 아님.
-  $\rVert x_p \lVert = \sqrt[p]{\sum_{i}\mid x_i^p\mid}\;where\; p\in\mathbb{R}$
-    
-      해당 공식에서 $p$는 차수를 의미하며 $p$가 1 이면 L1 Norm 이고 $p$가 2 이면 L2 Norm 이다.
-      $...
-      </p>
-    </div>
-
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
-
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-
-<em class=""
-    data-ts="1703689200"
-    data-df="ll"
-    >
-  Dec 28, 2023
-</em>
-
-
-        <!-- categories -->
         
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Math,
-            Linear Algebra
-          </span>
-        
-
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
+  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
 
 
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/wsl-docker-reinstall/">Docker 삭제 후 재설치</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
+영상의 기하학적인 변환
 
 
-
-
-
-        최근에 내가 모르는 도커 이미지와 컨테이너가 반복적으로 생성 되는 것을 확인했다.
-
-이유를 특정하기 어려웠으므로 일단 제일 간단한 방법인 삭제 후 재설치하는 방향으로 문제를 해결하였다.
-
-Docker 삭제
-
-
-  도커 엔진 삭제
-
-
-sudo apt-get purge -y docker-engine docker docker-ce docker-ce-cli ...
-      </p>
-    </div>
-
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
-
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-
-<em class=""
-    data-ts="1703343600"
-    data-df="ll"
-    >
-  Dec 24, 2023
-</em>
-
-
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Docker
-          </span>
-        
-
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/cpp-operator-overloading/">연산자 오버로딩</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        연산자 오버로딩
-
-
-  +, -, *, /, +=, -=, ==, !=, ... 등 숫자등을 연산하는 연산자 함수의 오버로딩이 가능하다.
-  해당 함수들을 오버로딩하는 것으로 객체간의 오버로딩도 가능하게 된다.
-
-
-연산자 오버로딩의 형태
-
-
-  operator 함수로 오버로딩
-    
-      operator+, operator- …
-    
+  영상을 구성하는 픽셀의 배치 구조를 변경함으로써 전체 영상의 모양을 바꾸는 작업이다.
+  픽셀의 밝기, 명암비, 필터링 조작과 달리 픽셀의 값은 유지한채 위치만 변경시킨다.
   
-...
+\[...
       </p>
     </div>
 
@@ -680,10 +541,10 @@ sudo apt-get purge -y docker-engine docker docker-ce docker-ce-cli ...
 
 
 <em class=""
-    data-ts="1702652400"
+    data-ts="1705244400"
     data-df="ll"
     >
-  Dec 16, 2023
+  Jan 15, 2024
 </em>
 
 
@@ -692,7 +553,8 @@ sudo apt-get purge -y docker-engine docker docker-ce docker-ce-cli ...
           <i class="far fa-folder-open fa-fw"></i>
           <span>
           
-            CPP
+            CPP,
+            OpenCV
           </span>
         
 
@@ -708,7 +570,419 @@ sudo apt-get purge -y docker-engine docker docker-ce docker-ce-cli ...
 
   <div class="post-preview">
     <h1>
-      <a href="/posts/cpp-error-1/">undefined reference to `std::ostream::operator<<(std::ostream& (*)(std::ostream&))'</a>
+      <a href="/posts/opencv-denoise/">OpenCV 잡음 제거 필터링</a>
+    </h1>
+
+    <div class="post-content">
+      <p>
+        
+
+
+
+
+
+        
+  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
+
+
+잡음 (Noise)
+
+
+  원본 신호에 추가 된 원치 않은 신호를 의미한다.
+  영상의 경우 영상을 획득하는 과정 중에 많이 발생한다.
+    
+      광학적 신호를 전기적 신호로 바꾸는 센서에서 주로 발생한다...
+      </p>
+    </div>
+
+    <div class="post-meta text-muted d-flex">
+      <div class="mr-auto">
+
+        <!-- posted date -->
+        <i class="far fa-calendar fa-fw"></i>
+        <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em class=""
+    data-ts="1704294000"
+    data-df="ll"
+    >
+  Jan  4, 2024
+</em>
+
+
+        <!-- categories -->
+        
+          <i class="far fa-folder-open fa-fw"></i>
+          <span>
+          
+            CPP,
+            OpenCV
+          </span>
+        
+
+      </div>
+
+      
+
+    </div> <!-- .post-meta -->
+
+  </div> <!-- .post-review -->
+
+
+
+  <div class="post-preview">
+    <h1>
+      <a href="/posts/opencv-sharpening/">OpenCV 샤프닝</a>
+    </h1>
+
+    <div class="post-content">
+      <p>
+        
+
+
+
+
+
+        
+  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
+
+
+샤프닝 (Sharpening)
+
+
+  블러링과 반대로 윤곽이 뚜렷하고 선명한 느낌이 나도록한다.
+  영상의 에지 근방에서 픽셀값의 명암비가 커지도록 수정해야 선명한 영상이 나온다.
+
+
+언샤프 마스크 필터 (Unsh...
+      </p>
+    </div>
+
+    <div class="post-meta text-muted d-flex">
+      <div class="mr-auto">
+
+        <!-- posted date -->
+        <i class="far fa-calendar fa-fw"></i>
+        <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em class=""
+    data-ts="1704207600"
+    data-df="ll"
+    >
+  Jan  3, 2024
+</em>
+
+
+        <!-- categories -->
+        
+          <i class="far fa-folder-open fa-fw"></i>
+          <span>
+          
+            CPP,
+            OpenCV
+          </span>
+        
+
+      </div>
+
+      
+
+    </div> <!-- .post-meta -->
+
+  </div> <!-- .post-review -->
+
+
+
+  <div class="post-preview">
+    <h1>
+      <a href="/posts/1opencv-blurring/">OpenCV 블러링</a>
+    </h1>
+
+    <div class="post-content">
+      <p>
+        
+
+
+
+
+
+        
+  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
+
+
+블러링 (Blurring)
+
+
+  영상을 부드럽게 만드는 기법. 스무딩 (smoothing) 이라고도 한다.
+  인접한 픽셀간 픽셀값의 변화가 크지 않은 경우 부드러운 느낌을 받을수 있다.
+  거친 입력 영상을 부...
+      </p>
+    </div>
+
+    <div class="post-meta text-muted d-flex">
+      <div class="mr-auto">
+
+        <!-- posted date -->
+        <i class="far fa-calendar fa-fw"></i>
+        <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em class=""
+    data-ts="1704207600"
+    data-df="ll"
+    >
+  Jan  3, 2024
+</em>
+
+
+        <!-- categories -->
+        
+          <i class="far fa-folder-open fa-fw"></i>
+          <span>
+          
+            CPP,
+            OpenCV
+          </span>
+        
+
+      </div>
+
+      
+
+    </div> <!-- .post-meta -->
+
+  </div> <!-- .post-review -->
+
+
+
+  <div class="post-preview">
+    <h1>
+      <a href="/posts/0opencv-filtering/">OpenCV 필터링</a>
+    </h1>
+
+    <div class="post-content">
+      <p>
+        
+
+
+
+
+
+        
+  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
+
+
+필터링 (Filtering)
+
+
+  영상에서 원하는 정보만을 걸러내는 연산을 수행한다.
+  영상을 부드럽게 처리하거나, 반대로 선명하게 만들거나, 노이즈를 제거하는 등의 연산을 한다.
+  마스크 행렬을 통해 연산을...
+      </p>
+    </div>
+
+    <div class="post-meta text-muted d-flex">
+      <div class="mr-auto">
+
+        <!-- posted date -->
+        <i class="far fa-calendar fa-fw"></i>
+        <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em class=""
+    data-ts="1704207600"
+    data-df="ll"
+    >
+  Jan  3, 2024
+</em>
+
+
+        <!-- categories -->
+        
+          <i class="far fa-folder-open fa-fw"></i>
+          <span>
+          
+            CPP,
+            OpenCV
+          </span>
+        
+
+      </div>
+
+      
+
+    </div> <!-- .post-meta -->
+
+  </div> <!-- .post-review -->
+
+
+
+  <div class="post-preview">
+    <h1>
+      <a href="/posts/opencv-logical/">OpenCV 논리연산</a>
+    </h1>
+
+    <div class="post-content">
+      <p>
+        
+
+
+
+
+
+        
+  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
+
+
+논리 연산
+
+
+  픽셀값을 이진수로 표현하여 비트 단위의 논리 연산을 수행한다.
+  논리곱 (AND), 논리합 (OR), 배타적 논리합 (XOR), 부정 (NOT) 을 지원한다.
+  AND, OR, XOR은 두 입...
+      </p>
+    </div>
+
+    <div class="post-meta text-muted d-flex">
+      <div class="mr-auto">
+
+        <!-- posted date -->
+        <i class="far fa-calendar fa-fw"></i>
+        <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em class=""
+    data-ts="1704121200"
+    data-df="ll"
+    >
+  Jan  2, 2024
+</em>
+
+
+        <!-- categories -->
+        
+          <i class="far fa-folder-open fa-fw"></i>
+          <span>
+          
+            CPP,
+            OpenCV
+          </span>
+        
+
+      </div>
+
+      
+
+    </div> <!-- .post-meta -->
+
+  </div> <!-- .post-review -->
+
+
+
+  <div class="post-preview">
+    <h1>
+      <a href="/posts/opencv-arithmetic/">OpenCV 산술 연산</a>
+    </h1>
+
+    <div class="post-content">
+      <p>
+        
+
+
+
+
+
+        
+  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
+
+
+산술 연산
+
+
+  영상 및 이미지는 2차원 행렬로 볼 수 있으므로 행렬의 산술 연산이 가능하다.
+  덧셈 및 뺄셈 연산으로 영상을 합성하여 새로운 영상으로 나타낼 수 있다.
+    
+      곱셈과 나눗셈 연산은...
+      </p>
+    </div>
+
+    <div class="post-meta text-muted d-flex">
+      <div class="mr-auto">
+
+        <!-- posted date -->
+        <i class="far fa-calendar fa-fw"></i>
+        <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em class=""
+    data-ts="1704121200"
+    data-df="ll"
+    >
+  Jan  2, 2024
+</em>
+
+
+        <!-- categories -->
+        
+          <i class="far fa-folder-open fa-fw"></i>
+          <span>
+          
+            CPP,
+            OpenCV
+          </span>
+        
+
+      </div>
+
+      
+
+    </div> <!-- .post-meta -->
+
+  </div> <!-- .post-review -->
+
+
+
+  <div class="post-preview">
+    <h1>
+      <a href="/posts/cpp-error-2/">Expression: is_block_type_valid(header->_block_use)</a>
     </h1>
 
     <div class="post-content">
@@ -721,9 +995,13 @@ sudo apt-get purge -y docker-engine docker docker-ce docker-ce-cli ...
 
         문제
 
-undefined reference to std::ostream::operator&amp;lt;&amp;lt;(std::ostream&amp;amp; (*)(std::ostream&amp;amp;))&#39;라는 메세지와 함께 컴파일이 되지 않았다.
+비쥬얼 스튜디오에서 CPP 파일을 실행하는 도중 Expression: is_block_type_valid(header-&amp;gt;_block_use)라는 메세지와 함께 에러가 발생했다.
 
-#include &amp;lt;iostream&amp;gt;도 제대로 선언했었고, namespace도 제대로 지정해주었으나, 계속 같은 문제가 ...
+검색을 해보니 힙메모리에서 참조할 수 없는 데이터를 참조하려고 할 때 발생하는 문제였다.
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#inclu...
       </p>
     </div>
 
@@ -742,10 +1020,10 @@ undefined reference to std::ostream::operator&amp;lt;&amp;lt;(std::ostream&amp;a
 
 
 <em class=""
-    data-ts="1702479600"
+    data-ts="1703948400"
     data-df="ll"
     >
-  Dec 14, 2023
+  Dec 31, 2023
 </em>
 
 
@@ -754,7 +1032,7 @@ undefined reference to std::ostream::operator&amp;lt;&amp;lt;(std::ostream&amp;a
           <i class="far fa-folder-open fa-fw"></i>
           <span>
           
-            CPP
+            Trouble Shooting
           </span>
         
 
@@ -770,7 +1048,7 @@ undefined reference to std::ostream::operator&amp;lt;&amp;lt;(std::ostream&amp;a
 
   <div class="post-preview">
     <h1>
-      <a href="/posts/opencv-trackbar/">OpenCV 트랙바 생성</a>
+      <a href="/posts/opencv-histogram/">OpenCV 히스토그램</a>
     </h1>
 
     <div class="post-content">
@@ -781,13 +1059,17 @@ undefined reference to std::ostream::operator&amp;lt;&amp;lt;(std::ostream&amp;a
 
 
 
-        트랙바 생성
+        
+  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
 
 
-  트랙바 관련 콜백 함수cv::createTrackbar를 cv::setTrackbarPos 함수에 전달한다.
-  cv::createTrackbar(trackbar name, window name, pos, level, call back function, image);
+히스토그램
+
+
+  픽셀값의 분포를 나타낸다.
+  히스토그램 그래프의 가로축은 빈(bin) 이라 부른다.
     
-      pos는 트랙바가 어디서 시작할지를 지정한다....
+      그레이스케일의 경우 픽셀이 나타낼 수 있는 0 ~ 255 까지 총 256 개의 bin 이 ...
       </p>
     </div>
 
@@ -806,88 +1088,10 @@ undefined reference to std::ostream::operator&amp;lt;&amp;lt;(std::ostream&amp;a
 
 
 <em class=""
-    data-ts="1702306800"
+    data-ts="1703775600"
     data-df="ll"
     >
-  Dec 12, 2023
-</em>
-
-
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            CPP,
-            OpenCV
-          </span>
-        
-
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/opencv-mask/">OpenCV 마스크 연산</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        마스크 연산
-
-
-  
-    영상 (프레임), 이미지 등의 일부 영역에 대해서만 특정 연산을 수행하는 것.
-  
-  
-    주로 영상을 그레이스케일로 변환한 뒤 연산한다.
-  
-
-
-setTo
-
-
-  operator::Mat.setTo(마스크 값, 마스크 행렬);의 형태
-
-
-#include &quot;opencv2/opencv.hpp&quot;
-
-int main(voi...
-      </p>
-    </div>
-
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
-
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-
-<em class=""
-    data-ts="1702306800"
-    data-df="ll"
-    >
-  Dec 12, 2023
+  Dec 29, 2023
 </em>
 
 
@@ -913,7 +1117,7 @@ int main(voi...
 
   <div class="post-preview">
     <h1>
-      <a href="/posts/opencv-io/">OpenCV 파일 입출력</a>
+      <a href="/posts/opencv-contrast/">OpenCV 명암비 조절</a>
     </h1>
 
     <div class="post-content">
@@ -924,15 +1128,15 @@ int main(voi...
 
 
 
-        파일 입출력
+        
+  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
 
 
-  uchar를 사용하는 이미지 뿐만 아니라 int, double 등을 사용하는 일반 배열의 행렬도 저장 가능히디.
-  json 형식의 파일도 저장 가능하다.
-  cv::FileStorage 함수로 변수 선언한다.
-  cv::FileStorage 함수의 flag로 파일을 읽을 것인지 쓸 것인지를 지정한디.
-    
-      flag에...
+영상의 명암비 조절
+
+
+  영상에서 밝은 영역과 어두운 영역 간의 차이를 명암비라고 한다.
+  명암비가 높은 영상은 어두운 영역과 밝은 영역의 차이가 크기 때문에 사물의 분간이 쉽고, 그 반대는 영상 전체가 흐릿하...
       </p>
     </div>
 
@@ -951,208 +1155,10 @@ int main(voi...
 
 
 <em class=""
-    data-ts="1702306800"
+    data-ts="1703775600"
     data-df="ll"
     >
-  Dec 12, 2023
-</em>
-
-
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            CPP,
-            OpenCV
-          </span>
-        
-
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/opencv-mouse-event/">OpenCV 마우스 이벤트</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        마우스 이벤트
-
-
-  마우스 콜백함수를 정의한 뒤 cv::setMouseCallback() 함수에 전달한다.
-  마우스 이벤트에는 왼쪽, 오른족, 가운데 버튼 등을 지정할 수 있고 업, 다운, 클릭, 드래그 등이 있다.
-  cv::setMouseCallback(window name, call-back function);
-
-
-#include &quot;openc...
-      </p>
-    </div>
-
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
-
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-
-<em class=""
-    data-ts="1701874800"
-    data-df="ll"
-    >
-  Dec  7, 2023
-</em>
-
-
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            CPP,
-            OpenCV
-          </span>
-        
-
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/opencv-video-handling/">OpenCV 비디오 다루기</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        Video Capture
-
-
-  영상 파일을 불러오거나 장치에 연결 되어있는 카메라에서 이미지 (프레임) 을 받아옴
-  영상 파일을 불러올 때엔 cv::VideoCapture cap(&quot;./path/to/file&quot;);을
-  장치에 연결 된 카메라에서 프레임을 불러올 때에는 cv::VideoCapture cap(0);을 입력한다.
-    
-      0은...
-      </p>
-    </div>
-
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
-
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-
-<em class=""
-    data-ts="1701702000"
-    data-df="ll"
-    >
-  Dec  5, 2023
-</em>
-
-
-        <!-- categories -->
-        
-
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/opencv-vec-scalar/">Opencv Vec Scalar</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        Vec 클래스
-
-
-  OpenCV에서 지원하는 데이터 타입
-  특정 벡터에 접근할 수 있는 .val() 멤버 함수 존재
-    
-      [] 연산자 재정의로 vector.val(int x)를 vector[int x]로 접근 가능함
-    
-  
-
-
-#include &quot;opencv2/opencv.hpp&quot;
-
-#include &amp;lt;iostream&amp;gt;...
-      </p>
-    </div>
-
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
-
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-
-<em class=""
-    data-ts="1701183600"
-    data-df="ll"
-    >
-  Nov 29, 2023
+  Dec 29, 2023
 </em>
 
 
@@ -1279,9 +1285,39 @@ int main(voi...
     
 
     
+      <!-- hide number -->
+      
+    
+
+  
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      <!-- hide number -->
+      
+    
+
+  
+
+    
+    
+    
+    
+    
+
+    
+
+    
       <!-- show number -->
       <li class="page-item ">
-        <a class="page-link btn-box-shadow" href="/page5">5</a>
+        <a class="page-link btn-box-shadow" href="/page7">7</a>
       </li>
     
 
@@ -1290,7 +1326,7 @@ int main(voi...
   <!-- mobile pagination -->
   <li class="page-index align-middle">
     <span>1</span>
-    <span class="text-muted">/ 5</span>
+    <span class="text-muted">/ 7</span>
   </li>
 
   <!-- right arrow -->
@@ -1340,27 +1376,27 @@ int main(voi...
         
         
         
-      <li><a href="/posts/opencv-mask/">OpenCV 마스크 연산</a></li>
+      <li><a href="/posts/cpp-error-2/">Expression: is_block_type_valid(header->_block_use)</a></li>
       
         
         
         
-      <li><a href="/posts/norm/">Norm</a></li>
+      <li><a href="/posts/python-sitepackages/">vscode 가상환경 site-pacakages path 설정</a></li>
       
         
         
         
-      <li><a href="/posts/opencv-mouse-event/">OpenCV 마우스 이벤트</a></li>
+      <li><a href="/posts/cpp-error-1/">undefined reference to `std::ostream::operator<<(std::ostream& (*)(std::ostream&))'</a></li>
       
         
         
         
-      <li><a href="/posts/opencv-video-handling/">OpenCV 비디오 다루기</a></li>
+      <li><a href="/posts/opencv-denoise/">OpenCV 잡음 제거 필터링</a></li>
       
         
         
         
-      <li><a href="/posts/opencv-crop/">OpenCV 행렬 범위 참조</a></li>
+      <li><a href="/posts/1opencv-blurring/">OpenCV 블러링</a></li>
       
     </ul>
   </div> <!-- #access-lastmod -->
@@ -1398,75 +1434,6 @@ int main(voi...
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1476,185 +1443,6 @@ int main(voi...
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
   
     
     
@@ -1749,6 +1537,113 @@ int main(voi...
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
   
     
     
@@ -1915,7 +1810,84 @@ int main(voi...
     
     
     
+  
+    
+    
+    
+    
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2003,6 +1975,55 @@ int main(voi...
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2056,6 +2077,55 @@ int main(voi...
     
     
     
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -2092,6 +2162,9 @@ int main(voi...
       <a class="post-tag" href="/tags/opencv/">opencv</a>
     
       
+      <a class="post-tag" href="/tags/book-review/">book review</a>
+    
+      
       <a class="post-tag" href="/tags/cs/">cs</a>
     
       
@@ -2104,16 +2177,13 @@ int main(voi...
       <a class="post-tag" href="/tags/settings/">settings</a>
     
       
+      <a class="post-tag" href="/tags/trouble-shooting/">trouble shooting</a>
+    
+      
       <a class="post-tag" href="/tags/ubuntu/">ubuntu</a>
     
       
       <a class="post-tag" href="/tags/windows/">windows</a>
-    
-      
-      <a class="post-tag" href="/tags/linear-algebra/">linear algebra</a>
-    
-      
-      <a class="post-tag" href="/tags/math/">math</a>
     
 
     </div>
@@ -2169,75 +2239,6 @@ int main(voi...
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2247,185 +2248,6 @@ int main(voi...
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
   
     
     
@@ -2520,6 +2342,113 @@ int main(voi...
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
   
     
     
@@ -2686,7 +2615,84 @@ int main(voi...
     
     
     
+  
+    
+    
+    
+    
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2774,6 +2780,55 @@ int main(voi...
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2827,6 +2882,55 @@ int main(voi...
     
     
     
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -2863,6 +2967,9 @@ int main(voi...
       <a class="post-tag" href="/tags/opencv/">opencv</a>
     
       
+      <a class="post-tag" href="/tags/book-review/">book review</a>
+    
+      
       <a class="post-tag" href="/tags/cs/">cs</a>
     
       
@@ -2875,16 +2982,13 @@ int main(voi...
       <a class="post-tag" href="/tags/settings/">settings</a>
     
       
+      <a class="post-tag" href="/tags/trouble-shooting/">trouble shooting</a>
+    
+      
       <a class="post-tag" href="/tags/ubuntu/">ubuntu</a>
     
       
       <a class="post-tag" href="/tags/windows/">windows</a>
-    
-      
-      <a class="post-tag" href="/tags/linear-algebra/">linear algebra</a>
-    
-      
-      <a class="post-tag" href="/tags/math/">math</a>
     
 
     </div>
@@ -2906,7 +3010,7 @@ int main(voi...
     <div class="d-flex justify-content-between align-items-center text-muted ml-md-3 mr-md-3">
       <div class="footer-left">
         <p class="mb-0">
-          © 2023
+          © 2024
           <a href="https://github.com/skanwngud">JuHyeong Yoo</a>.
           
           <span data-toggle="tooltip" data-placement="top"

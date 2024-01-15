@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>오답노트</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-12-28T12:02:36+09:00</updated>
+  <updated>2024-01-15T18:18:38+09:00</updated>
   <author>
     <name>JuHyeong Yoo</name>
     <uri>http://localhost:4000/</uri>
@@ -13,237 +13,21 @@
   <link rel="alternate" type="text/html" hreflang="en"
     href="http://localhost:4000/"/>
   <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
-  <rights> © 2023 JuHyeong Yoo </rights>
+  <rights> © 2024 JuHyeong Yoo </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
 
   
   <entry>
-    <title>Norm</title>
-    <link href="http://localhost:4000/posts/norm/" rel="alternate" type="text/html" title="Norm" />
-    <published>2023-12-28T00:00:00+09:00</published>
+    <title>Opencv Affine</title>
+    <link href="http://localhost:4000/posts/opencv-affine/" rel="alternate" type="text/html" title="Opencv Affine" />
+    <published>2024-01-15T00:00:00+09:00</published>
   
-    <updated>2023-12-28T11:50:37+09:00</updated>
+    <updated>2024-01-15T00:00:00+09:00</updated>
   
-    <id>http://localhost:4000/posts/norm/</id>
-    <content src="http://localhost:4000/posts/norm/" />
-    <author>
-      <name>yjh</name>
-    </author>
-
-  
-    
-    <category term="Math" />
-    
-    <category term="Linear Algebra" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Norm
-
-
-  Normalization 의 약자가 아님.
-  $\rVert x_p \lVert = \sqrt[p]{\sum_{i}\mid x_i^p\mid}\;where\; p\in\mathbb{R}$
-    
-      해당 공식에서 $p$는 차수를 의미하며 $p$가 1 이면 L1 Norm 이고 $p$가 2 이면 L2 Norm 이다.
-      $p = 1$ 일 때 그래프를 그려보면 마름모꼴이 되고 $p = 2$ 의 그래프는 원이다가 그 이후 $p$가 커질수록 점점 사각형에 가까운 형태가 된다.
-    
-  
-  공간 상에서 벡터 (Vector) 의 총 길이를 나타낸다.
-    
-      원점 $O$ 으로부터의 벡터 거리 혹은 크기
-    
-  
-  일반적으로 L0 Norm, L1 Norm, L2...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Docker 삭제 후 재설치</title>
-    <link href="http://localhost:4000/posts/wsl-docker-reinstall/" rel="alternate" type="text/html" title="Docker 삭제 후 재설치" />
-    <published>2023-12-24T00:00:00+09:00</published>
-  
-    <updated>2023-12-24T00:00:00+09:00</updated>
-  
-    <id>http://localhost:4000/posts/wsl-docker-reinstall/</id>
-    <content src="http://localhost:4000/posts/wsl-docker-reinstall/" />
-    <author>
-      <name>yjh</name>
-    </author>
-
-  
-    
-    <category term="Docker" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      최근에 내가 모르는 도커 이미지와 컨테이너가 반복적으로 생성 되는 것을 확인했다.
-
-이유를 특정하기 어려웠으므로 일단 제일 간단한 방법인 삭제 후 재설치하는 방향으로 문제를 해결하였다.
-
-Docker 삭제
-
-
-  도커 엔진 삭제
-
-
-sudo apt-get purge -y docker-engine docker docker-ce docker-ce-cli docker.io
-sudo apt-get autoremove -y --purge docker-engine docker docker-ce docker.io
-
-
-
-  컨테이너, 이미지, 볼륨 등 사용자가 만든 파일 등 모두 삭제
-
-
-sudo rm -rf /var/lib/docker /etc/docker
-sudo rm /etc/apparmor.d/docker
-s...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>연산자 오버로딩</title>
-    <link href="http://localhost:4000/posts/cpp-operator-overloading/" rel="alternate" type="text/html" title="연산자 오버로딩" />
-    <published>2023-12-16T00:00:00+09:00</published>
-  
-    <updated>2023-12-16T00:00:00+09:00</updated>
-  
-    <id>http://localhost:4000/posts/cpp-operator-overloading/</id>
-    <content src="http://localhost:4000/posts/cpp-operator-overloading/" />
-    <author>
-      <name>yjh</name>
-    </author>
-
-  
-    
-    <category term="CPP" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      연산자 오버로딩
-
-
-  +, -, *, /, +=, -=, ==, !=, ... 등 숫자등을 연산하는 연산자 함수의 오버로딩이 가능하다.
-  해당 함수들을 오버로딩하는 것으로 객체간의 오버로딩도 가능하게 된다.
-
-
-연산자 오버로딩의 형태
-
-
-  operator 함수로 오버로딩
-    
-      operator+, operator- …
-    
-  
-
-
-멤버변수로만 오버로딩 가능한 연산자
-
-
-  연산자 오버로딩은 전역함수, 멤버함수로 오버로딩이 가능한데, 이때 멤버함수로만 오버로딩 할 수 있는 연산자가 존재한다.
-    
-      객체를 대상으로 진행해야 의미가 있기 때문이다.
-      =(대입)
-      ()(함수 호출)
-      [](배열 접근 (인덱스))
-      -&amp;gt;(멤버 접근을 ...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>undefined reference to `std::ostream::operator<<(std::ostream&amp; (*)(std::ostream&amp;))'</title>
-    <link href="http://localhost:4000/posts/cpp-error-1/" rel="alternate" type="text/html" title="undefined reference to `std::ostream::operator<<(std::ostream&amp; (*)(std::ostream&amp;))'" />
-    <published>2023-12-14T00:00:00+09:00</published>
-  
-    <updated>2023-12-14T00:00:00+09:00</updated>
-  
-    <id>http://localhost:4000/posts/cpp-error-1/</id>
-    <content src="http://localhost:4000/posts/cpp-error-1/" />
-    <author>
-      <name>yjh</name>
-    </author>
-
-  
-    
-    <category term="CPP" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      문제
-
-undefined reference to std::ostream::operator&amp;lt;&amp;lt;(std::ostream&amp;amp; (*)(std::ostream&amp;amp;))'라는 메세지와 함께 컴파일이 되지 않았다.
-
-#include &amp;lt;iostream&amp;gt;도 제대로 선언했었고, namespace도 제대로 지정해주었으나, 계속 같은 문제가 발생하였다.
-
-해결
-
-검색을 해보니 컴파일러의 지정이 제대로 되어있지 않았던 문제였다.
-
-tasks.json을 가보니 command 블럭에 /usr/bin/gcc로 되어있는 것을 확인했다.
-
-/usr/bin/g++로 수정하여 c++로 컴파일하도록 수정하는 것으로 정상작동하는 것을 확인하였다.
-
-{
-  "tasks": [
-    {
-      "type": ...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>OpenCV 트랙바 생성</title>
-    <link href="http://localhost:4000/posts/opencv-trackbar/" rel="alternate" type="text/html" title="OpenCV 트랙바 생성" />
-    <published>2023-12-12T00:00:00+09:00</published>
-  
-    <updated>2023-12-12T00:00:00+09:00</updated>
-  
-    <id>http://localhost:4000/posts/opencv-trackbar/</id>
-    <content src="http://localhost:4000/posts/opencv-trackbar/" />
+    <id>http://localhost:4000/posts/opencv-affine/</id>
+    <content src="http://localhost:4000/posts/opencv-affine/" />
     <author>
       <name>yjh</name>
     </author>
@@ -264,23 +48,246 @@ tasks.json을 가보니 command 블럭에 /usr/bin/gcc로 되어있는 것을 �
 
 
 
-      트랙바 생성
+      
+  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
 
 
-  트랙바 관련 콜백 함수cv::createTrackbar를 cv::setTrackbarPos 함수에 전달한다.
-  cv::createTrackbar(trackbar name, window name, pos, level, call back function, image);
+영상의 기하학적인 변환
+
+
+  영상을 구성하는 픽셀의 배치 구조를 변경함으로써 전체 영상의 모양을 바꾸는 작업이다.
+  픽셀의 밝기, 명암비, 필터링 조작과 달리 픽셀의 값은 유지한채 위치만 변경시킨다.
+  
+\[\begin{cases}
+  x' = f_1(x, y) \\
+  y' = f_2(x, y) \\
+\end{cases}\]
+  
+
+
+어파인 변환 (Affine Transform)
+
+
+  영상을 평행 이동시키거나 회전, 크기 변환 등을 통해 만들 수 있는 변환을 통칭한다.
+  직선간의 길이 비율과 평행관계가 그대로 유지 되며 직선은 그대로 직선을 나타낸다.
+ ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>OpenCV 잡음 제거 필터링</title>
+    <link href="http://localhost:4000/posts/opencv-denoise/" rel="alternate" type="text/html" title="OpenCV 잡음 제거 필터링" />
+    <published>2024-01-04T00:00:00+09:00</published>
+  
+    <updated>2024-01-05T16:24:04+09:00</updated>
+  
+    <id>http://localhost:4000/posts/opencv-denoise/</id>
+    <content src="http://localhost:4000/posts/opencv-denoise/" />
+    <author>
+      <name>yjh</name>
+    </author>
+
+  
     
-      pos는 트랙바가 어디서 시작할지를 지정한다.
+    <category term="CPP" />
+    
+    <category term="OpenCV" />
     
   
-  콜백 함수 내에서는 cv::getTrackbarPos 함수를 통해 트랙바가 위치한 윈도우에서 값을 받아온다.
+
+  
+    <summary>
+      
 
 
-#include "opencv2/opencv.hpp"
 
-void on_level_change(int pose, void* userdata);  // 콜백 함수 선언
 
-cv::Mat img = cv::Mat::zeros(400,...
+
+      
+  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
+
+
+잡음 (Noise)
+
+
+  원본 신호에 추가 된 원치 않은 신호를 의미한다.
+  영상의 경우 영상을 획득하는 과정 중에 많이 발생한다.
+    
+      광학적 신호를 전기적 신호로 바꾸는 센서에서 주로 발생한다.
+    
+  
+  $f(x, y) = s(x, y) + n(x, y)$
+    
+      $f(x, y)$는 출력영상.
+      $s(x, y)$는 센서에서 들어온 입력 영상.
+      $n(x, y)$는 노이즈.
+    
+  
+
+
+잡음 모델
+
+
+  잡음이 생성 되는 방식을 의미한다.
+  다양한 모델이 존재하며 가장 대표적인 것은 가우시안 잡음 모...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>OpenCV 샤프닝</title>
+    <link href="http://localhost:4000/posts/opencv-sharpening/" rel="alternate" type="text/html" title="OpenCV 샤프닝" />
+    <published>2024-01-03T00:00:00+09:00</published>
+  
+    <updated>2024-01-04T01:59:19+09:00</updated>
+  
+    <id>http://localhost:4000/posts/opencv-sharpening/</id>
+    <content src="http://localhost:4000/posts/opencv-sharpening/" />
+    <author>
+      <name>yjh</name>
+    </author>
+
+  
+    
+    <category term="CPP" />
+    
+    <category term="OpenCV" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
+
+
+샤프닝 (Sharpening)
+
+
+  블러링과 반대로 윤곽이 뚜렷하고 선명한 느낌이 나도록한다.
+  영상의 에지 근방에서 픽셀값의 명암비가 커지도록 수정해야 선명한 영상이 나온다.
+
+
+언샤프 마스크 필터 (Unsharp mask filter)
+
+
+  샤프닝은 우선 입력 영상을 블러링 처리를 한 뒤 최종적으로 샤프닝 처리를 한다.
+  입력 영상을 블러처리한 뒤 함수값의 증감도를 그래프화 시킨다.
+  함수값이 증가하는 부분에선 음수, 증가가 멈추는 부분에선 양수로 변환이 되는데, 이 그래프를 기존의 입력 영상에 대해 빼기 연산을 실시한다.
+  $h(x, y) = f(x...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>OpenCV 블러링</title>
+    <link href="http://localhost:4000/posts/1opencv-blurring/" rel="alternate" type="text/html" title="OpenCV 블러링" />
+    <published>2024-01-03T00:00:00+09:00</published>
+  
+    <updated>2024-01-04T17:39:15+09:00</updated>
+  
+    <id>http://localhost:4000/posts/1opencv-blurring/</id>
+    <content src="http://localhost:4000/posts/1opencv-blurring/" />
+    <author>
+      <name>yjh</name>
+    </author>
+
+  
+    
+    <category term="CPP" />
+    
+    <category term="OpenCV" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
+
+
+블러링 (Blurring)
+
+
+  영상을 부드럽게 만드는 기법. 스무딩 (smoothing) 이라고도 한다.
+  인접한 픽셀간 픽셀값의 변화가 크지 않은 경우 부드러운 느낌을 받을수 있다.
+  거친 입력 영상을 부드럽게 하거나 노이즈를 제거하는 전처리 과정으로 사용할 수 있다.
+  OpenCV 에서는 cv::blur(평균값 필터) 와 cv::GaussianBlur(가우시안 필터) 함수를 제공한다.
+
+
+평균값 필터 (Mean filter)
+
+
+  블러링 필터 중에서 간단하고 구현하기 쉬운 필터이다.
+  입력 영상에서 특정 픽셀과 주변 픽셀들의 산술 평균을 결과 영상 ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>OpenCV 필터링</title>
+    <link href="http://localhost:4000/posts/0opencv-filtering/" rel="alternate" type="text/html" title="OpenCV 필터링" />
+    <published>2024-01-03T00:00:00+09:00</published>
+  
+    <updated>2024-01-04T17:39:07+09:00</updated>
+  
+    <id>http://localhost:4000/posts/0opencv-filtering/</id>
+    <content src="http://localhost:4000/posts/0opencv-filtering/" />
+    <author>
+      <name>yjh</name>
+    </author>
+
+  
+    
+    <category term="CPP" />
+    
+    <category term="OpenCV" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
+
+
+필터링 (Filtering)
+
+
+  영상에서 원하는 정보만을 걸러내는 연산을 수행한다.
+  영상을 부드럽게 처리하거나, 반대로 선명하게 만들거나, 노이즈를 제거하는 등의 연산을 한다.
+  마스크 행렬을 통해 연산을 실시한다.
+  cv::filter2D라는 기본적인 필터링 함수를 제공한다.
+    
+      cv::filter2D(cv::Mat src, cv::Mat dst, int ddpeth, cv::Mat Kernel, cv::Point anchor = cv::Point(-1, -1), borderType = BORDER_DEFAULT
+      ddepth:...
     </summary>
   
 
