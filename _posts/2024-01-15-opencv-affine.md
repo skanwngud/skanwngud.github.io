@@ -1,9 +1,9 @@
 ---
-title:
+title: OpenCV 어파인변환
 author: yjh
 math: true
-categories: [CPP, OpenCV]
-tags: [cpp, opencv, book review]
+categories: [Computer Vision, OpenCV]
+tags: [cv, opencv, cpp, book review]
 ---
 
 > 해당 포스팅은 *OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)*를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
@@ -15,7 +15,7 @@ tags: [cpp, opencv, book review]
 - $$\begin{cases}
     x' = f_1(x, y) \\
     y' = f_2(x, y) \\
-\end{cases}$$
+    \end{cases}$$
 
 ## 어파인 변환 (Affine Transform)
 
@@ -24,7 +24,7 @@ tags: [cpp, opencv, book review]
 - $$\begin{cases}
     x' = f_1(x, y) = ax + by + c \\
     y' = f_2(x, y) = dx + ey + f \\
-\end{cases}$$
+    \end{cases}$$
 - 어파인 변환 행렬을 통해 어파인 변환을 수행한다.
 - `cv::Mat cv::warpAffine(src, dst, M, dsize, flags, borderMode, borderValue);`로 변환을 수행한다.
 
@@ -32,9 +32,9 @@ tags: [cpp, opencv, book review]
 
 - 위의 식을 행렬 변환 시킨 행렬.
 - $$\begin{pmatrix}
-    (a & b & c) \\
-    (d & e & f) \\
-\end{pmatrix}$$의 2, 3 모양의 행렬로 변환 가능하다.
+    a & b & c \\
+    d & e & f \\
+    \end{pmatrix}$$의 2, 3 모양의 행렬로 변환 가능하다.
 - 어파인 변환 행렬을 구하기 위해선 두 행렬 간의 세 점의 이동 관계를 알아야한다.
 - `cv::Mat cv::getAffineTransform(src[], dst[]);`
 - `cv::Mat cv::getAffineTransform(src, dst);`
