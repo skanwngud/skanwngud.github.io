@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>오답노트</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2024-01-15T18:18:38+09:00</updated>
+  <updated>2024-01-17T16:30:45+09:00</updated>
   <author>
     <name>JuHyeong Yoo</name>
     <uri>http://localhost:4000/</uri>
@@ -20,11 +20,66 @@
 
   
   <entry>
-    <title>Opencv Affine</title>
-    <link href="http://localhost:4000/posts/opencv-affine/" rel="alternate" type="text/html" title="Opencv Affine" />
+    <title>OpenCV 어파인 변환 종류</title>
+    <link href="http://localhost:4000/posts/opencv-translation/" rel="alternate" type="text/html" title="OpenCV 어파인 변환 종류" />
+    <published>2024-01-17T00:00:00+09:00</published>
+  
+    <updated>2024-01-17T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/opencv-translation/</id>
+    <content src="http://localhost:4000/posts/opencv-translation/" />
+    <author>
+      <name>yjh</name>
+    </author>
+
+  
+    
+    <category term="Computer Vision" />
+    
+    <category term="OpenCV" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
+
+
+이동 변환 (Translation Transform)
+
+
+  입력 영상을 가로 혹은 세로 방향으로 평행 이동 시키는 연산.
+  시프트 (Shift) 연산이라고도 한다.
+  
+\[\begin{cases}
+  x' = x + a \\
+  y' = y + b \\
+  \end{cases}\]
+  
+  $a, b$ 는 각각 $x, y$를 얼마만큼 평행 이동 시킬 것인지에 대한 수치이다.
+  이동에 대한 어파인 변환 행렬은 \(\begin{pmatrix}
+  1 &amp;amp; 0 &amp;amp;a \\
+  0 &amp;amp; 1 &amp;amp; b \\
+  \end{pmatrix}\)의 형태이...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>OpenCV 어파인변환</title>
+    <link href="http://localhost:4000/posts/opencv-affine/" rel="alternate" type="text/html" title="OpenCV 어파인변환" />
     <published>2024-01-15T00:00:00+09:00</published>
   
-    <updated>2024-01-15T00:00:00+09:00</updated>
+    <updated>2024-01-15T18:19:16+09:00</updated>
   
     <id>http://localhost:4000/posts/opencv-affine/</id>
     <content src="http://localhost:4000/posts/opencv-affine/" />
@@ -34,7 +89,7 @@
 
   
     
-    <category term="CPP" />
+    <category term="Computer Vision" />
     
     <category term="OpenCV" />
     
@@ -61,7 +116,7 @@
 \[\begin{cases}
   x' = f_1(x, y) \\
   y' = f_2(x, y) \\
-\end{cases}\]
+  \end{cases}\]
   
 
 
@@ -69,8 +124,7 @@
 
 
   영상을 평행 이동시키거나 회전, 크기 변환 등을 통해 만들 수 있는 변환을 통칭한다.
-  직선간의 길이 비율과 평행관계가 그대로 유지 되며 직선은 그대로 직선을 나타낸다.
- ...
+  직선간의 길이 비율과 평행관계가 그대로 유지 되며 직선은 그대로 직선을 나타낸다....
     </summary>
   
 
@@ -92,7 +146,7 @@
 
   
     
-    <category term="CPP" />
+    <category term="Computer Vision" />
     
     <category term="OpenCV" />
     
@@ -154,7 +208,7 @@
 
   
     
-    <category term="CPP" />
+    <category term="Computer Vision" />
     
     <category term="OpenCV" />
     
@@ -207,7 +261,7 @@
 
   
     
-    <category term="CPP" />
+    <category term="Computer Vision" />
     
     <category term="OpenCV" />
     
@@ -239,55 +293,6 @@
 
   블러링 필터 중에서 간단하고 구현하기 쉬운 필터이다.
   입력 영상에서 특정 픽셀과 주변 픽셀들의 산술 평균을 결과 영상 ...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>OpenCV 필터링</title>
-    <link href="http://localhost:4000/posts/0opencv-filtering/" rel="alternate" type="text/html" title="OpenCV 필터링" />
-    <published>2024-01-03T00:00:00+09:00</published>
-  
-    <updated>2024-01-04T17:39:07+09:00</updated>
-  
-    <id>http://localhost:4000/posts/0opencv-filtering/</id>
-    <content src="http://localhost:4000/posts/0opencv-filtering/" />
-    <author>
-      <name>yjh</name>
-    </author>
-
-  
-    
-    <category term="CPP" />
-    
-    <category term="OpenCV" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      
-  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
-
-
-필터링 (Filtering)
-
-
-  영상에서 원하는 정보만을 걸러내는 연산을 수행한다.
-  영상을 부드럽게 처리하거나, 반대로 선명하게 만들거나, 노이즈를 제거하는 등의 연산을 한다.
-  마스크 행렬을 통해 연산을 실시한다.
-  cv::filter2D라는 기본적인 필터링 함수를 제공한다.
-    
-      cv::filter2D(cv::Mat src, cv::Mat dst, int ddpeth, cv::Mat Kernel, cv::Point anchor = cv::Point(-1, -1), borderType = BORDER_DEFAULT
-      ddepth:...
     </summary>
   
 

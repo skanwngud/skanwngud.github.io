@@ -1,8 +1,8 @@
 ---
 title: OpenCV 비디오 다루기
 author: yjh
-categoris: [CPP, OpenCV]
-tags: [cpp, opencv, book review]
+categoris: [Computer Vision, OpenCV]
+tags: [cpp, opencv, book review, cv]
 ---
 
 > 해당 포스팅은 *OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)*를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
