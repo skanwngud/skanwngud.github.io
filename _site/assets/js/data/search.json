@@ -1,8 +1,25 @@
 [
   
   {
+    "title": "OpenCV 투시 변환",
+    "url": "/posts/1opencv-perspective/",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, cv, book review",
+    "date": "2024-01-17 00:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.투시 변환 (Perspective Transform)  직선성과 평행관계가 유지 되는 어파인 변환보다 훨씬 자유로운 기하학적인 변환 방법이다.  직사각형 형태의 영상을 임의의 볼록 사각형 형태로 변환할 수 있다.  4개의...",
+    "content": "  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.투시 변환 (Perspective Transform)  직선성과 평행관계가 유지 되는 어파인 변환보다 훨씬 자유로운 기하학적인 변환 방법이다.  직사각형 형태의 영상을 임의의 볼록 사각형 형태로 변환할 수 있다.  4개의 점의 이동관계로부터 여덟개의 방정식을 얻을 수 있으며, 해당 방정식으로부투 투시 변환을 표현하는 파라미터 정보를 얻을 수 있다.  투시 변환 행렬은 $(3, 3)$ 크기의 실수 행렬로 표현한다.  \\[\\begin{pmatrix} wx' \\\\ wy' \\\\ w \\\\ \\end{pmatrix}  = M_{p}\\begin{pmatrix} x \\\\ y \\\\ 1 \\\\ \\end{pmatrix}  = \\begin{pmatrix} p_{11} &amp; p_{12} &amp; p_{13} \\\\ p_{21} &amp; p_{22} &amp; p_{23} \\\\ p_{31} &amp; p_{32} &amp; p_{33} \\\\ \\end{pmatrix}  \\begin{pmatrix} x \\\\ y \\\\ 1 \\\\ \\end{pmatrix}\\]    위 행렬에서 입력좌표와 출력좌표를 $(x, y, 1), (wx’, wy’, w)$ 의 형태로 표현한 것을 동차 좌표계 (homogeneous coordintates)라고 한다.  $w$는 결과 영상의 좌표를 표현 할 때 사용 되는 상수이며, $w = p_{31}x + p_{32}y + p_{33}$의 형태로 계산된다.  \\[\\begin{cases}  x' = \\frac{p_{11}x \\;+ \\;p_{12}y \\;+ \\;p_{13}}{p_{31}x \\;+ \\;p_{32}y \\;+ \\;p_{33}} \\\\  y' = \\frac{p_{21}x \\;+ \\;p_{22}y \\;+ \\;p_{23}}{p_{31}x \\;+ \\;p_{32}y \\;+ \\;p_{33}} \\\\  \\end{cases}\\]  cv::getPerspectiveTransform  투시 변환 행렬을 구해주는 함수를 기본 제공한다.  4개의 점과 이 점들이 이동한 결과 영상의 좌표 4개를 입력 받아 $(3, 3)$ 크기의 투시 변환 행렬을 반환한다.  cv::getPerspectiveTransform(src, dst, m);  src와 dst 는 cv::Point2f가 담긴 배열이나 std::vecotr&lt;cv::Point2f&gt;를 전달한다.cv::warpPerspective  투시 변환 결과 영상을 반환한다.  cv::warpPerspective(src, dst, m, size, flags, borderMode, borderValue);// 입력 영상에서 마우스로 4개의 점을 찍은 뒤 투시 변환을 진행하는 코드#include \"opencv2/opencv.hpp\"#include &lt;iostream&gt;cv::Mat src;cv::Point2f srcQuad[4], dstQuad[4];void on_mouse(int event, int x, int y, int flags, void* userdata);int main(void){    src = cv::imread(\"path/to/src\");    cv::namedWindow(\"src\");    cv::setMouseCallback(\"src\", on_mouse);    cv::imshow(\"src\", src);    cv::waitKey();    return 0;}void on_mouse(int event, int x, int y, int flags, void*){    static int cnt = 0;    if (event == cv::EVENT_LBUTTONDOWN)    {        if (cnt &lt; 4)        {            srcQuad[cnt++] = cv::Point2f(x, y);            cv::circle(src, cv::Point(x, y), 5, cv::Scalar(0, 0, 255), -1);            cv::imshow(\"src\", src);                        if (cnt == 4)            {                int w = 200, h = 300;                dstQuad[0] = cv::Point2f(0, 0);                dstQuad[1] = cv::Point2f(w - 1, 0);                dstQuad[2] = cv::Point2f(w - 1, h - 1);                dstQuad[3] = cv::Point2f(0, h - 1);                cv::Mat pers = cv::getPerspectiveTransform(srcQuad, dstQuad);                cv::Mat dst;                cv::warpPerspective(src, dst, pers, cv::Size(w, h));                cv::imshow(\"dst\", dst);            }        }    }}cv::perspectiveTransform  src이 투시 변환을 통해 dst의 어느 지점으로 이동했는지 알려주는 함수이다.  cv::perspectiveTransform(src, dst, m);          src: std::vector&lt;cv::Point2f&gt;      dst: std::vector&lt;cv::Point2f&gt;      m: $(3, 3)$ 혹은 $(4, 4)$ 실수형 행렬이다.      ...    std::vector&lt;cv::Point2f&gt; s, d;        for (int i = 0; i &lt; 4; i++)    {        s.push_back(srcPts[i]);    }    cv::perspectiveTransform(s, d, pers);..."
+  },
+  
+  {
     "title": "OpenCV 어파인 변환 종류",
-    "url": "/posts/opencv-translation/",
+    "url": "/posts/0opencv-translation/",
     "categories": "Computer Vision, OpenCV",
     "tags": "cv, opencv, cpp, book review",
     "date": "2024-01-17 00:00:00 +0900",
@@ -122,8 +139,8 @@
   {
     "title": "OpenCV 산술 연산",
     "url": "/posts/opencv-arithmetic/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book reivew",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book reivew, cv",
     "date": "2024-01-02 00:00:00 +0900",
     
 
@@ -156,8 +173,8 @@
   {
     "title": "OpenCV 히스토그램",
     "url": "/posts/opencv-histogram/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book review",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-12-29 00:00:00 +0900",
     
 
@@ -173,8 +190,8 @@
   {
     "title": "OpenCV 명암비 조절",
     "url": "/posts/opencv-contrast/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book review",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-12-29 00:00:00 +0900",
     
 
@@ -190,8 +207,8 @@
   {
     "title": "OpenCV 밝기 조절",
     "url": "/posts/opencv-brightness/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book review",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-12-29 00:00:00 +0900",
     
 
@@ -207,8 +224,8 @@
   {
     "title": "OpenCV 그레이스케일",
     "url": "/posts/grayscale/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book review",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-12-29 00:00:00 +0900",
     
 
@@ -224,8 +241,8 @@
   {
     "title": "OpenCV 에서 제공하는 유용한 함수",
     "url": "/posts/opencv-useful-functions/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book review",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-12-28 00:00:00 +0900",
     
 
@@ -309,8 +326,8 @@
   {
     "title": "OpenCV 트랙바 생성",
     "url": "/posts/opencv-trackbar/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book review",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-12-12 00:00:00 +0900",
     
 
@@ -326,8 +343,8 @@
   {
     "title": "OpenCV 마스크 연산",
     "url": "/posts/opencv-mask/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book review",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-12-12 00:00:00 +0900",
     
 
@@ -343,8 +360,8 @@
   {
     "title": "OpenCV 파일 입출력",
     "url": "/posts/opencv-io/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book review",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-12-12 00:00:00 +0900",
     
 
@@ -360,7 +377,7 @@
   {
     "title": "OpenCV 마우스 이벤트",
     "url": "/posts/opencv-mouse-event/",
-    "categories": "CPP, OpenCV",
+    "categories": "Computer Vision, OpenCV",
     "tags": "",
     "date": "2023-12-07 00:00:00 +0900",
     
@@ -378,7 +395,7 @@
     "title": "OpenCV 비디오 다루기",
     "url": "/posts/opencv-video-handling/",
     "categories": "",
-    "tags": "cpp, opencv, book review",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-12-05 00:00:00 +0900",
     
 
@@ -394,8 +411,8 @@
   {
     "title": "OpenCV Vec Scalar",
     "url": "/posts/opencv-vec-scalar/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book review",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-11-29 00:00:00 +0900",
     
 
@@ -411,8 +428,8 @@
   {
     "title": "OpenCV 행렬 계산",
     "url": "/posts/opencv-mat_calc/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book review",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-11-29 00:00:00 +0900",
     
 
@@ -428,8 +445,8 @@
   {
     "title": "OpenCV 행렬 변환",
     "url": "/posts/opencv-convert-mat/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book review",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-11-29 00:00:00 +0900",
     
 
@@ -445,8 +462,8 @@
   {
     "title": "OpenCV 픽셀 참조",
     "url": "/posts/opencv-refer-elem/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book review",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-11-28 00:00:00 +0900",
     
 
@@ -462,8 +479,8 @@
   {
     "title": "OpenCV 행렬 범위 참조",
     "url": "/posts/opencv-crop/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book review",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-11-28 00:00:00 +0900",
     
 
@@ -479,8 +496,8 @@
   {
     "title": "OpenCV 행렬 생성",
     "url": "/posts/opencv-make-mat/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book review",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-11-27 00:00:00 +0900",
     
 
@@ -496,8 +513,8 @@
   {
     "title": "OpenCV 행렬 복사",
     "url": "/posts/opencv-copy-matrix/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book review",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-11-27 00:00:00 +0900",
     
 
@@ -513,8 +530,8 @@
   {
     "title": "OpenCV 클래스",
     "url": "/posts/opencv-class/",
-    "categories": "CPP, OpenCV",
-    "tags": "cpp, opencv, book review",
+    "categories": "Computer Vision, OpenCV",
+    "tags": "cpp, opencv, book review, cv",
     "date": "2023-11-27 00:00:00 +0900",
     
 

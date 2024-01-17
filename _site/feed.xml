@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>오답노트</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2024-01-17T16:30:45+09:00</updated>
+  <updated>2024-01-17T17:50:16+09:00</updated>
   <author>
     <name>JuHyeong Yoo</name>
     <uri>http://localhost:4000/</uri>
@@ -20,14 +20,63 @@
 
   
   <entry>
-    <title>OpenCV 어파인 변환 종류</title>
-    <link href="http://localhost:4000/posts/opencv-translation/" rel="alternate" type="text/html" title="OpenCV 어파인 변환 종류" />
+    <title>OpenCV 투시 변환</title>
+    <link href="http://localhost:4000/posts/1opencv-perspective/" rel="alternate" type="text/html" title="OpenCV 투시 변환" />
     <published>2024-01-17T00:00:00+09:00</published>
   
     <updated>2024-01-17T00:00:00+09:00</updated>
   
-    <id>http://localhost:4000/posts/opencv-translation/</id>
-    <content src="http://localhost:4000/posts/opencv-translation/" />
+    <id>http://localhost:4000/posts/1opencv-perspective/</id>
+    <content src="http://localhost:4000/posts/1opencv-perspective/" />
+    <author>
+      <name>yjh</name>
+    </author>
+
+  
+    
+    <category term="Computer Vision" />
+    
+    <category term="OpenCV" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
+
+
+투시 변환 (Perspective Transform)
+
+
+  직선성과 평행관계가 유지 되는 어파인 변환보다 훨씬 자유로운 기하학적인 변환 방법이다.
+  직사각형 형태의 영상을 임의의 볼록 사각형 형태로 변환할 수 있다.
+  4개의 점의 이동관계로부터 여덟개의 방정식을 얻을 수 있으며, 해당 방정식으로부투 투시 변환을 표현하는 파라미터 정보를 얻을 수 있다.
+  투시 변환 행렬은 $(3, 3)$ 크기의 실수 행렬로 표현한다.
+  
+\[\begin{pmatrix} wx' \\ wy' \\ w \\ \end{pmatrix}
+  = M_{p}\begin{pmatrix} x...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>OpenCV 어파인 변환 종류</title>
+    <link href="http://localhost:4000/posts/0opencv-translation/" rel="alternate" type="text/html" title="OpenCV 어파인 변환 종류" />
+    <published>2024-01-17T00:00:00+09:00</published>
+  
+    <updated>2024-01-17T00:00:00+09:00</updated>
+  
+    <id>http://localhost:4000/posts/0opencv-translation/</id>
+    <content src="http://localhost:4000/posts/0opencv-translation/" />
     <author>
       <name>yjh</name>
     </author>
@@ -79,7 +128,7 @@
     <link href="http://localhost:4000/posts/opencv-affine/" rel="alternate" type="text/html" title="OpenCV 어파인변환" />
     <published>2024-01-15T00:00:00+09:00</published>
   
-    <updated>2024-01-15T18:19:16+09:00</updated>
+    <updated>2024-01-17T16:31:51+09:00</updated>
   
     <id>http://localhost:4000/posts/opencv-affine/</id>
     <content src="http://localhost:4000/posts/opencv-affine/" />
@@ -136,7 +185,7 @@
     <link href="http://localhost:4000/posts/opencv-denoise/" rel="alternate" type="text/html" title="OpenCV 잡음 제거 필터링" />
     <published>2024-01-04T00:00:00+09:00</published>
   
-    <updated>2024-01-05T16:24:04+09:00</updated>
+    <updated>2024-01-17T16:31:51+09:00</updated>
   
     <id>http://localhost:4000/posts/opencv-denoise/</id>
     <content src="http://localhost:4000/posts/opencv-denoise/" />
@@ -198,7 +247,7 @@
     <link href="http://localhost:4000/posts/opencv-sharpening/" rel="alternate" type="text/html" title="OpenCV 샤프닝" />
     <published>2024-01-03T00:00:00+09:00</published>
   
-    <updated>2024-01-04T01:59:19+09:00</updated>
+    <updated>2024-01-17T16:31:51+09:00</updated>
   
     <id>http://localhost:4000/posts/opencv-sharpening/</id>
     <content src="http://localhost:4000/posts/opencv-sharpening/" />
@@ -240,59 +289,6 @@
   입력 영상을 블러처리한 뒤 함수값의 증감도를 그래프화 시킨다.
   함수값이 증가하는 부분에선 음수, 증가가 멈추는 부분에선 양수로 변환이 되는데, 이 그래프를 기존의 입력 영상에 대해 빼기 연산을 실시한다.
   $h(x, y) = f(x...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>OpenCV 블러링</title>
-    <link href="http://localhost:4000/posts/1opencv-blurring/" rel="alternate" type="text/html" title="OpenCV 블러링" />
-    <published>2024-01-03T00:00:00+09:00</published>
-  
-    <updated>2024-01-04T17:39:15+09:00</updated>
-  
-    <id>http://localhost:4000/posts/1opencv-blurring/</id>
-    <content src="http://localhost:4000/posts/1opencv-blurring/" />
-    <author>
-      <name>yjh</name>
-    </author>
-
-  
-    
-    <category term="Computer Vision" />
-    
-    <category term="OpenCV" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      
-  해당 포스팅은 OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
-
-
-블러링 (Blurring)
-
-
-  영상을 부드럽게 만드는 기법. 스무딩 (smoothing) 이라고도 한다.
-  인접한 픽셀간 픽셀값의 변화가 크지 않은 경우 부드러운 느낌을 받을수 있다.
-  거친 입력 영상을 부드럽게 하거나 노이즈를 제거하는 전처리 과정으로 사용할 수 있다.
-  OpenCV 에서는 cv::blur(평균값 필터) 와 cv::GaussianBlur(가우시안 필터) 함수를 제공한다.
-
-
-평균값 필터 (Mean filter)
-
-
-  블러링 필터 중에서 간단하고 구현하기 쉬운 필터이다.
-  입력 영상에서 특정 픽셀과 주변 픽셀들의 산술 평균을 결과 영상 ...
     </summary>
   
 
