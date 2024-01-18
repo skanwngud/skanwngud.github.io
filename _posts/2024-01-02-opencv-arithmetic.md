@@ -3,7 +3,7 @@ title: OpenCV 산술 연산
 author: yjh
 math: true
 categories: [Computer Vision, OpenCV]
-tags: [cpp, opencv, book reivew, cv]
+tags: [cpp, opencv, book review, cv]
 ---
 
 > 해당 포스팅은 *OpenCV 4로 배우는 컴퓨터 비전과 머신러닝 (황선규 저)*를 보고 공부하며 개인적인 용도를 위해 정리한 글이다.
