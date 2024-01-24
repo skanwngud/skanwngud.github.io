@@ -163,12 +163,12 @@ int main(void)
 - `cv::getRotationMatrix2D(center, angle, scale);`
   - `center`: 회전 기준점
   - `angle`: 회잔 반경을 나타내며 양수는 반시계, 음수는 시게방향으로 회전한다.
-- 단순히 $90\degree$ 회전을 하고 싶다면 `cv;:rotate()` 함수를 사용한다.
+- 단순히 $90^\circ$ 회전을 하고 싶다면 `cv;:rotate()` 함수를 사용한다.
 - `cv::rotate(src, dst, rotateCode);`
-  - `rotateCode`: 어느 방향으로 몇 $\degree$만큼 회전 시킬 것인지 명시한다.
-    - `ROTATE_90_CLOCKWISE`: $90\degree$만큼 시계 방향으로 회전한다.
-    - `ROTATE_90_COUNTERCLOCKWISE`: $90\degree$만큼 반시계 방향으로 회전한다.
-    - `ROTATE_180_CLOCKWISE`: $180\degree$만큼 시계 방향으로 회전한다.
+  - `rotateCode`: 어느 방향으로 몇 $^\circ$만큼 회전 시킬 것인지 명시한다.
+    - `ROTATE_90_CLOCKWISE`: $90^\circ$만큼 시계 방향으로 회전한다.
+    - `ROTATE_90_COUNTERCLOCKWISE`: $90^\circ$만큼 반시계 방향으로 회전한다.
+    - `ROTATE_180_CLOCKWISE`: $180^\circ$만큼 시계 방향으로 회전한다.
     - ...
 
 ```cpp
