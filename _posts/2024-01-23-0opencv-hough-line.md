@@ -83,3 +83,35 @@ int main(void)
 - `cv::HoughLinesP(image, lines, rho, theta, threshold, minLineLengh=0, maxLineGap=0);`
   - `lines`: `std::vector<cv::Vec4i>` 형태로 저장한다. 선분정보는 `cv::Vec4i` 형태로 저장 되며, `x1, y1, x2, y2` 를 저장한다.
   - `maxLineGap`: 일직선상의 직선이 잡음 등의 영향으로 끊어졌을 때 두 직선을 하나의 직선으로 간주하고자 할 때 사용한다.
+
+```cpp
+#include "opencv2/opencv.hpp"
+#include <iostream>
+
+int main(void)
+{
+  cv::Mat src = cv::imread("path/to/src", cv::IMREAD_GRAYSCALE);
+
+  cv::Mat edges;
+  cv::Canny(src, edges, 50, 150);  // 에지 검출
+
+  std::vector<cv::Vec4i> lines;
+  cv::HoughLinesP(edges, lines, 1, CV_PI / 180, 160, 50, 5);  // 확률적 직선 검출
+
+  cv::Mat dst;
+  cv::cvtColor(edges, dst, cv::COLOR_GRAY2BGR);
+
+  for (cv::vec4i l: lines)  // 범위기반의 반복문. lines 배열 안의 객체 타입 cv::Vec4i 인 l 을 차례대로 순회한다.
+  {
+    cv::line(dst, cv::Point(l[0], l[1]), cv::Point(l[2], l[3]), cv::Scalar(0, 0, 255), 2, cv::LINE_AA);
+  }
+
+  cv::imshow("src", src);
+  cv::imshow("dst", dst);
+
+  cv::waitKey(0);
+  cv::destroyAllWindows();
+
+  return 0;
+}
+```
