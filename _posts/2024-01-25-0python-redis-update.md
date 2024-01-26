@@ -1,7 +1,7 @@
 ---
 title: redis update 시 한글 깨짐 현상
 author: yjh
-categories: [Python, Trouble Shooting]
+categories: [Trouble Shooting]
 tags: [python, trouble shooting]
 ---
 
