@@ -76,3 +76,63 @@ void on_threshold(int pos, void* userdata)
 }
 
 ```
+
+## 적응형 이진화 (Adaptive Binarization)
+
+- 모든 픽셀에 임계값을 적용하는 전역 이진화 (global adaptive) 와 달리 각 픽셀별로 임계값을 조절한다.
+  - 전역 이진화는 조명이 균일하지 못하는 등의 영상의 특성에 따라 제대로 된 이진화를 수행할 수 없기 때문이다.
+- 적응형 이진화에 대한 수식은 $T(x, y) = \mu(x, y) - C$이다.
+  - $\mu(x, y)$는 $(x, y)$ 주변 블록 영역의 픽셀값 평균이고 $C$는 임계값의 크기를 조정하는 상수이다.
+  - $\mu(x, y)$는  일반적인 산술평균을 구하거나 가우시안 함수 형태의 가중치를 적용한 가중 평균을 사용한다.
+  - $C$는 영상의 특성에 따라 사용자가 결정한다.
+
+### cv::adaptiveThreshold
+
+- `cv::adaptiveThreshold(src, dst, maxValue, adaptiveMethod, thresholdType, blockSize, C);`
+  - `maxValue`: 이진화 결과 영상의 최댓값이다.
+  - `adaptiveMethod`: 적응형 이진화에서 블록 평균 계산 방법 지정한다.
+    - `cv::ADAPTIVE_THRSH_MEAN_C`: `blockSize`x`blockSize` 크기의 주변 영역으로부터의 산술 평균을 구한다.
+    - `cv::ADAPTIVE_THRESH_GAUSSIAN_C`: `blcoSize`x`blockSize` 크기의 가우시안 마스크를 사용하여 가우시안 가중 평균을 구한다.
+  - `thresholdType`: `cv::THRESH_BINARY`, `cv::THRESH_BINARY_INV` 중 하나를 지정해서 사용한다.
+  - `blcoSize`: 임계값 계산시 사용하는 3보다 같거나 큰 홀수를 지정하는 블록 크기이다.
+  - `C`: 임계값 조정을 위한 상수이다. 블록 평균에서 `C`를 뺀 값을 임계값으로 사용한다.
+
+```cpp
+#include "opencv2/opencv.hpp"
+
+void on_adaptive(int pos, void* userdata);
+
+int main(void)
+{
+  cv::Mat src = cv::imread("path/to/src", cv::IMREAD_GRAYSCALE);
+
+  cv::Mat dst;
+  
+  cv::imshow("src", src);
+
+  cv::namedWindow("dst");
+  cv::createTrackbar("Block Size", "dst", 0, 200, on_adaptive, (void*)&src);
+  cv::setTrackbarPos("Block Size", "dst", 11);
+
+  cv::waitKey();
+  cv::destroyAllWindows();
+
+  return 0;
+}
+
+void on_adaptive(int pos, void* userdata)
+{
+  cv::Mat src = *(cv::Mat*)userdata;
+
+  int bsize = pos;
+  if (bsize % 2 == 0) bsize--;
+  if (bsize < 3) bsize = 3;
+
+  cv::Mat dst;
+  cv::adaptiveThreshold(src, dst, 255, cv::ADAPTIVE_THRESH_GAUSSIAN_C, cv::THRESH_BINARY, bsize, 5);
+
+  cv::imshow("dst", dst);
+
+}
+
+```
