@@ -65,6 +65,17 @@ tags: [cpp, cv, opencv, book review]
   - `patchSize`: `BRIEF` 기술자 계산 시 사용할 패치의 크기이다.
   - `fastThreshold`: `FAST` 코너 검출 방법에서 사용 되는 임계값이다.
 
+## KeyPoint 클래스
+
+### KeyPoint 클래스의 멤버변수
+
+- `pt`: 특징점의 좌표를 나타낸다.
+- `size`: 특징점의 크기 (지름) 를 나타낸다.
+- `angle`: 특징점의 주된 방향 (각도) 을 나타낸다.
+- `response`: 특징점의 반응성을 나타낸다. 좋은 특징점을 선별하는 용도로 사용한다.
+- `octave`: 특징점이 추출 된 옥타브 (피라미드 단계) 를 나타낸다.
+- `class_id`: 특징점이 포함 된 객체의 번호를 의미한다.
+
 ```cpp
 #include "opencv2/opencv.hpp"
 
@@ -87,6 +98,12 @@ int main(void)
     cv::Mat desc2, dst2;
     feature->detectAndCompute(src, cv::Mat(), kpts, desc2);  // detect(), compute() 를 한 번에 수행한다
     cv::drawKeypoints(src, kpts, dst2, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
+
+    cv::imshow("src", src);
+    cv::imshow("dst", dst);
+
+    cv::waitKey();
+    cv::destroyAllWindows();
 
     return 0;
 }
