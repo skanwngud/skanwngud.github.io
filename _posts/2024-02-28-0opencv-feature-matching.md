@@ -63,7 +63,7 @@ tags: [cpp, opencv, cv, book review]
 - `mask`
   - 서로 매칭 가능한 질의 기술자와 훈련 기술자를 지정할 때 사용한다.
   - 행 개수는 질의 기술자 개수, 열의 개수는 훈련 기술자의 개수와 같아야한다.
-  - `mask.at<cv::uchar>(i, j)` 의 값이 0 이면 `queryDescriptor[i]` 는 `trainDescriptor[j]`로 매칭 될 수 없다./
+  - `mask.at<cv::uchar>(i, j)` 의 값이 0 이면 `queryDescriptor[i]` 는 `trainDescriptor[j]`로 매칭 될 수 없다.
   - `cv::noArray()` 를 지정하면 모든 가능한 매칭을 찾는다.
 
 ```cpp
