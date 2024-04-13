@@ -3,7 +3,7 @@ title: WSL 에서 GUI 관련 프로그램이 실행 되지 않는 문제
 author: yjh
 math: true
 categories: [Ubuntu, Trouble Shooting]
-tags: [ubuntu, opencv, trobule shooting]
+tags: [ubuntu, opencv, trouble shooting]
 ---
 
 ## 문제
