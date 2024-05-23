@@ -2,8 +2,8 @@
 title: 선형대수 (1)
 author: yjh
 math: true
-categories: [Math, LinearAlgebra]
-tags: [math, linearalgebra]
+categories: [Math, Linear Algebra]
+tags: [math, linear algebra]
 ---
 
 ## 행렬
@@ -74,7 +74,7 @@ $AB = 1\*1 + 0\*3 + 1\*5 + 0\*2 + 1\*4 + 0\*6$
 ### 역행렬
 
 - $A^{-1}$로 표기한다
-- 행렬 $A$가 존재할 때, $AA^{-1} = E$ 가 되는 행렬 
+- 행렬 $A$가 존재할 때, $AA^{-1} = E$ 가 되는 행렬
 - 행렬식이 $0$인 경우 역행렬이 존재하지 않는다
 $$A^{-1} = \frac{1}{detA}\begin{pmatrix}
     C_{11} & C_{21} & \cdots \\
