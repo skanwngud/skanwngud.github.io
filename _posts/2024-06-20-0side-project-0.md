@@ -1,5 +1,5 @@
 ---
-title: [사이드 프로젝트] ~ 06. 20
+title: 사이드 프로젝트 ~ 06. 20
 author: yjh
 math: true
 categories: [Side Project, Annotation Tool]
