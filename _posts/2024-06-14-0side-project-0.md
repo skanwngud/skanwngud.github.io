@@ -1,5 +1,5 @@
 ---
-title: 사이드 프로젝트 그 동안의 정리
+title: [사이드 프로젝트] 그 동안의 정리
 author: yjh
 math: true
 categories: [Side Project, Annotation Tool]
@@ -38,5 +38,5 @@ tags: [side project, annotation tool]
 ### ~ 현재
 
 - 웹페이지를 `html`로 간단하게 제작하고 있다. 디자인이 중요한 요소는 아닐거라 생각해서 디자인적인 요소는 넣지 않을 생각이다.
-  - 이미지를 올리고 태스크를 지정하고 필요에 의해 모델의 사이즈와 클래스를 지정한다.(`detection`, `classification`, `pose estimation`, `segmentation`)
+  - 이미지를 올리고 태스크를 지정하고 필요에 의해 모델의 사이즈와 클래스를 지정한다.(`detection`, `pose estimation`, `segmentation`)
 - `ngrok`을 통해 배포한 웹페이지를 외부에서 접속할 수 있는 것을 확인하였다.
