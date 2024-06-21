@@ -1,5 +1,5 @@
 ---
-title: 사이드 프로젝트 그 동안의 정리
+title: 사이드 프로젝트 (0) 그 동안의 정리
 author: yjh
 math: true
 categories: [Side Project, Annotation Tool]

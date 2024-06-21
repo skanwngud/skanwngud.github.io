@@ -1,5 +1,5 @@
 ---
-title: 사이드 프로젝트 ~ 06. 20
+title: 사이드 프로젝트 (1) FastAPI 에러 핸들러, input data 기본값 설정, Docker IP 고정
 author: yjh
 math: true
 categories: [Side Project, Annotation Tool]
